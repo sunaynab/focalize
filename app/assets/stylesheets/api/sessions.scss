@@ -3,10 +3,190 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Toggles display of email depending on formType
+
 .sign-in-form-container .email-input {
   display: none;
 }
 
 .sign-up-form-container .email-input {
   display: flex;
+}
+
+.errors {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  // padding-top: 15px;
+  color: rgba(255,255,255,0.8);
+  flex-direction: column;
+  text-align: center;
+}
+
+.sign-in-form-container{
+  display: flex;
+  width: 40%;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid white;
+  border-radius: 7px;
+  margin-right: 40px;
+  height: 300px;
+  justify-content: center;
+  background-color: rgba(255,255,255,0.2);
+  float: right;
+}
+
+.sign-up-form-container{
+  display: flex;
+  width: 40%;
+  padding: 0px 20px 20px 20px;
+  border-radius: 7px;
+  border: 1px solid white;
+  margin-left: 40px;
+  height: 300px;
+  background-color: rgba(255,255,255,0.2);
+  justify-content: center;
+  align-items: stretch;
+}
+
+.sign-up-form-box{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-in-form-box{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-in-form {
+  width: 100%;
+}
+
+.sign-up-form {
+  width: 100%;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  height: 22px;
+  margin: 0px 0px 4px 4px;
+}
+
+input[type=text] {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0);
+  border-radius: 25px;
+  background-color: rgba(255,255,255,0.1);
+  padding-left: 2px;
+}
+
+input[type=password] {
+  width: 100%;
+  border: 0.5px solid rgba(255,255,255,0);
+  border-radius: 25px;
+  background-color: rgba(255,255,255,0.1);
+  padding-left: 2px;
+}
+
+input[type=submit] {
+  width: 40%;
+  border: 0.5px solid white;
+  border-radius: 25px;
+  background-color: transparent;
+}
+
+input[type=password]:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+input[type=text]:hover{
+  background-color: rgba(255,255,255,0.3);
+}
+
+input[type=submit]:hover {
+  background-color: rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+
+input[type=password]:focus {
+  outline: none;
+  background-color: rgba(255,255,255,0.3);
+}
+
+input[type=text]:focus {
+  outline: none;
+  background-color: rgba(255,255,255,0.3);
+}
+
+input[type=submit]:focus {
+  outline: none;
+}
+
+input[type=submit]:active {
+  background-color: rgba(255,255,255,0.75);
+}
+
+.Links span {
+  border-bottom: 1px solid white;
+  padding: 0px 8px 4px 8px;
+  color: white;
+  text-align: center;
+}
+
+.Links a {
+  color: rgba(255,255,255,0.60);
+  padding: 0px 8px 4px 8px;
+  text-align: center;
+}
+
+.Links {
+  display: flex;
+  flex-direction: row;
+}
+
+::-webkit-input-placeholder {
+  margin-left: 2px;
+  letter-spacing: 5px;
+  padding-left: 2px;
+  color: #d2d2d2;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+:-moz-placeholder { /* older Firefox*/
+  margin-left: 2px;
+  letter-spacing: 5px;
+  padding-left: 2px;
+  color: #d2d2d2;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  margin-left: 2px;
+  letter-spacing: 5px;
+  padding-left: 2px;
+  color: #d2d2d2;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+:-ms-input-placeholder {
+  margin-left: 2px;
+  letter-spacing: 5px;
+  padding-left: 2px;
+  color: #d2d2d2;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
 }

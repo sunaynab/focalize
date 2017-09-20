@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -52,6 +52,7 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+    <div className="fullpage">
       <div className={`${this.props.formType}-form-container`}>
         <form onSubmit={this.handleSubmit} className={`${this.props.formType}-form-box`}>
           <br/>
@@ -59,37 +60,33 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           <div className={`${this.props.formType}-form`}>
             <br/>
-            <label>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 className={`${this.props.formType}-input`}
                 placeholder="USERNAME"
               />
-            </label>
             <br/>
-            <div className="email-input">
-              <label>
               <input type="text"
+                className="email-input"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="EMAIL"
                 />
-              </label>
-            </div>
-            <label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className={`${this.props.formType}-input`}
                 placeholder="PASSWORD"
               />
-            </label>
             <br/>
+            <div className="submit">
             <input type="submit" value={this.props.formType} />
+            </div>
           </div>
         </form>
       </div>
+    </div>
     );
   }
 }
