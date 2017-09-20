@@ -29,6 +29,7 @@
   border: 1px solid white;
   border-radius: 7px;
   margin-right: 40px;
+  margin-top: 20px;
   height: 300px;
   justify-content: center;
   background-color: rgba(255,255,255,0.2);
@@ -42,6 +43,7 @@
   border-radius: 7px;
   border: 1px solid white;
   margin-left: 40px;
+  margin-top: 20px;
   height: 300px;
   background-color: rgba(255,255,255,0.2);
   justify-content: center;
@@ -88,6 +90,7 @@ input[type=text] {
   border-radius: 25px;
   background-color: rgba(255,255,255,0.1);
   padding-left: 2px;
+  text-indent: 10px;
 }
 
 input[type=password] {
@@ -96,6 +99,7 @@ input[type=password] {
   border-radius: 25px;
   background-color: rgba(255,255,255,0.1);
   padding-left: 2px;
+  text-indent: 10px;
 }
 
 input[type=submit] {
@@ -103,6 +107,7 @@ input[type=submit] {
   border: 0.5px solid white;
   border-radius: 25px;
   background-color: transparent;
+  height: 40%
 }
 
 input[type=password]:hover{
@@ -161,7 +166,7 @@ input[type=submit]:active {
   color: #d2d2d2;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  text-align: center;
+  text-indent: 10px;
 }
 :-moz-placeholder { /* older Firefox*/
   margin-left: 2px;
@@ -170,7 +175,7 @@ input[type=submit]:active {
   color: #d2d2d2;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  text-align: center;
+  text-indent: 10px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
   margin-left: 2px;
@@ -179,7 +184,7 @@ input[type=submit]:active {
   color: #d2d2d2;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  text-align: center;
+  text-indent: 10px;
 }
 :-ms-input-placeholder {
   margin-left: 2px;
@@ -188,5 +193,5 @@ input[type=submit]:active {
   color: #d2d2d2;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  text-align: center;
+  text-indent: 10px;
 }
