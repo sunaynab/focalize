@@ -1,3 +1,12 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Toggles display of email depending on formType
+.sign-in-form-container .email-input {
+  display: none;
+}
+
+.sign-up-form-container .email-input {
+  display: flex;
+}
