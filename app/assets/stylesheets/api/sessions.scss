@@ -4,6 +4,14 @@
 
 // Toggles display of email depending on formType
 
+body {
+  background: image-url('login_splash_screen.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .sign-in-form-container .email-input {
   display: none;
 }
@@ -12,11 +20,15 @@
   display: flex;
 }
 
+.sign-up-form-container button {
+  display: none;
+}
+
 .errors {
   display: flex;
   justify-content: space-between;
   font-size: 10px;
-  // padding-top: 15px;
+  padding-top: 15px;
   color: rgba(255,255,255,0.8);
   flex-direction: column;
   text-align: center;
@@ -32,8 +44,9 @@
   margin-top: 20px;
   height: 300px;
   justify-content: center;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.1);
   float: right;
+  align-items: center;
 }
 
 .sign-up-form-container{
@@ -45,9 +58,9 @@
   margin-left: 40px;
   margin-top: 20px;
   height: 300px;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.1);
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
 }
 
 .sign-up-form-box{
@@ -76,7 +89,9 @@
 
 .submit {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 input {
@@ -84,41 +99,38 @@ input {
   margin: 0px 0px 4px 4px;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   width: 100%;
+  height: 35px;
   border: 1px solid rgba(255,255,255,0);
   border-radius: 25px;
   background-color: rgba(255,255,255,0.1);
   padding-left: 2px;
   text-indent: 10px;
+  font-size: 12px;
+  color: white;
 }
 
-input[type=password] {
-  width: 100%;
-  border: 0.5px solid rgba(255,255,255,0);
-  border-radius: 25px;
-  background-color: rgba(255,255,255,0.1);
-  padding-left: 2px;
-  text-indent: 10px;
-}
-
-input[type=submit] {
+input[type=submit], button {
   width: 40%;
   border: 0.5px solid white;
   border-radius: 25px;
   background-color: transparent;
-  height: 40%
+  height: 40%;
+  font-size: 12px;
+  color: white;
+  height: 30px;
 }
 
-input[type=password]:hover{
+button {
+  margin: 0px 0px 4px 4px;
+}
+
+input[type=password]:hover, input[type=text]:hover{
   background-color: rgba(255,255,255,0.3);
 }
 
-input[type=text]:hover{
-  background-color: rgba(255,255,255,0.3);
-}
-
-input[type=submit]:hover {
+input[type=submit]:hover, button:hover {
   background-color: rgba(255,255,255,0.3);
   cursor: pointer;
 }
@@ -133,11 +145,11 @@ input[type=text]:focus {
   background-color: rgba(255,255,255,0.3);
 }
 
-input[type=submit]:focus {
+input[type=submit]:focus, button:focus {
   outline: none;
 }
 
-input[type=submit]:active {
+input[type=submit]:active , button:active{
   background-color: rgba(255,255,255,0.75);
 }
 
@@ -163,35 +175,39 @@ input[type=submit]:active {
   margin-left: 2px;
   letter-spacing: 5px;
   padding-left: 2px;
-  color: #d2d2d2;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-indent: 10px;
+  opacity: 0.5
 }
 :-moz-placeholder { /* older Firefox*/
   margin-left: 2px;
   letter-spacing: 5px;
   padding-left: 2px;
-  color: #d2d2d2;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-indent: 10px;
+  opacity: 0.5
 }
 ::-moz-placeholder { /* Firefox 19+ */
   margin-left: 2px;
   letter-spacing: 5px;
   padding-left: 2px;
-  color: #d2d2d2;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-indent: 10px;
+  opacity: 0.5
 }
 :-ms-input-placeholder {
   margin-left: 2px;
   letter-spacing: 5px;
   padding-left: 2px;
-  color: #d2d2d2;
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   text-indent: 10px;
+  opacity: 0.5
 }

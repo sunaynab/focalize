@@ -8,3 +8,4 @@
 
 user1 = User.create(username: "sunayna", email: "sunayna", password: "sunayna")
 user2 = User.create(username: "reactredux", email: "reactredux", password: "reactredux")
+demoUser = User.create(username: "demoUser", email: 'demosareawesome@email.com', password: "demosarecool")
