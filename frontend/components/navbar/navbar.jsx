@@ -8,7 +8,6 @@ class NavBar extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    debugger;
     this.props = newProps;
   }
 
