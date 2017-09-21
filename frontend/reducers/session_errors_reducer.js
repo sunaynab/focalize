@@ -3,9 +3,7 @@ import {
   RECEIVE_CURRENT_USER,
 } from '../actions/session_actions';
 
-const _nullErrors = Object.freeze({
-  errors: null
-});
+const _nullErrors = [];
 
 export default (state = [], action) => {
   Object.freeze(state);

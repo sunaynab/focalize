@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   return {
     submitForm: user => dispatch(submitForm(user)),
     formType,
-    logOut: user => dispatch(logout(user))
+    logOut: () => dispatch(logout())
   };
 };
 

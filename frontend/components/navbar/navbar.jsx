@@ -11,23 +11,30 @@ class NavBar extends React.Component {
     this.props = newProps;
   }
 
-  handleClick () {
-    this.props.logOut(this.props.currentUser).then(() => this.props.history.push('/'));
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.logOut().then(() => this.props.history.push('/sign-in'));
   }
 
   render () {
     let span;
     if (this.props.loggedIn){
       span = (
-        <div className="user info">
+        <div className="user-info">
           <span>Welcome, {this.props.currentUser.username}</span>
-          <button onClick={this.handleClick}>LogOut</button>
+          <button className = "logout" onClick={this.handleClick}>Sign Out</button>
         </div>);
-    }else {
+    }else if (this.props.location.pathname === ('/sign-in') || ('/sign-up')){
       span = (<span></span>);
+    }else{
+      span = (<span>
+        <Link to='/sign-in'>Sign In</Link>
+        <Link to='/sign-up'>Create New Account</Link>
+      </span>);
     }
     return (
-      <div>
+      <div className="navbar">
         <Link to="/" className="header-link">
           <h1>focalize</h1>
         </Link>
@@ -36,6 +43,5 @@ class NavBar extends React.Component {
     );
   }
 }
-
 
 export default NavBar;

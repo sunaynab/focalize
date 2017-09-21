@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Toggles display of email depending on formType
+
 
 body {
   background: image-url('login_splash_screen.jpg') no-repeat center center fixed;
@@ -12,6 +12,25 @@ body {
   background-size: cover;
 }
 
+.navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  margin-left: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  flex-direction: column;
+}
+
+// Toggles display of email depending on formType
 .sign-in-form-container .email-input {
   display: none;
 }
@@ -109,6 +128,7 @@ input[type=text], input[type=password] {
   text-indent: 10px;
   font-size: 12px;
   color: white;
+  background-image: image-url('user.png') no-repeat scroll 7px 7px;
 }
 
 input[type=submit], button {
@@ -160,15 +180,21 @@ input[type=submit]:active , button:active{
   text-align: center;
 }
 
-.Links a {
+.Links {
   color: rgba(255,255,255,0.60);
-  padding: 0px 8px 4px 8px;
+  padding: 0px 8px 4px 0px;
   text-align: center;
 }
 
 .Links {
   display: flex;
   flex-direction: row;
+}
+
+.logout {
+  width: 70px;
+  height: 30%;
+
 }
 
 ::-webkit-input-placeholder {
