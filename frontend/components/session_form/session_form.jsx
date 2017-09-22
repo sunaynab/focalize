@@ -13,6 +13,12 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    if(this.props.match.path !== newProps.match.path){
+      this.props.clearErrors();
+    }
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -27,9 +33,9 @@ class SessionForm extends React.Component {
 
   navLink() {
     if (this.props.formType === 'sign-in') {
-      return (<div className="Links"><span>Sign In</span><Link to="/sign-up">Create New Account</Link></div>);
+      return (<div className="Links"><span>Sign In</span><Link to="/sign-up" onClick={this.clearErrors}>Create New Account</Link></div>);
     } else {
-      return (<div className="Links"><Link to="/sign-in">Sign In</Link><span>Create New Account</span></div>);
+      return (<div className="Links"><Link to="/sign-in" onClick={this.clearErrors}>Sign In</Link><span>Create New Account</span></div>);
     }
   }
 

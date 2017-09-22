@@ -17,6 +17,8 @@ class NavBar extends React.Component {
     this.props.logOut().then(() => this.props.history.push('/sign-in'));
   }
 
+
+
   render () {
     let span;
     if (this.props.loggedIn){
