@@ -1,10 +1,17 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all
+    if params[:user_id]
+      @photos = Photo.where(user_id: params[:user_id])
+    else
+      @photos = Photo.all
+    end
   end
 
   def show
-    @photo = Photo.find_by(params[:id])
+    @photo = Photo.find(params[:id])
+    unless @photo
+      render json: ['This photo does not exist'], status: 404
+    end
   end
 
   def create
@@ -18,8 +25,14 @@ class Api::PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params[:id])
-    @photo.destroy!
+    if @photo
+      @photo.destroy!
+    else
+      render json: ['This photo does not exist'], status: 404
+    end
   end
+
+  private
 
   def photo_params
     params.require(:photo).permit(:image_url, :user)

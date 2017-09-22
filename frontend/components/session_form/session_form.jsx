@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -31,7 +32,7 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(e);
     this.submit();
   }
 

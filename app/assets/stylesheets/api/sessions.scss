@@ -147,6 +147,8 @@ input[type=submit]:focus, button:focus {
 
 input[type=submit]:active , button:focus {
   outline: none;
+  background-color: white;
+  color: black;
 }
 
 .Links span {
