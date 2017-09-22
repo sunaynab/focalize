@@ -2,13 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-info {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
-  flex-direction: column;
-}
-
 .fullpage-sign-in {
   display: flex;
   flex-direction: row;
@@ -152,9 +145,8 @@ input[type=submit]:focus, button:focus {
   outline: none;
 }
 
-input[type=submit]:active , button:active{
-  background-color: rgba(255,255,255,0.75);
-  color: black;
+input[type=submit]:active , button:focus {
+  outline: none;
 }
 
 .Links span {
@@ -175,12 +167,6 @@ input[type=submit]:active , button:active{
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-.logout {
-  width: 70px;
-  height: 30%;
-
 }
 
 ::-webkit-input-placeholder {

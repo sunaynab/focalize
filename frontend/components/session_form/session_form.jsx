@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
 
   submit() {
     const user = this.state;
-    this.props.submitForm(user).then(() => (this.props.history.push('/')));
+    this.props.submitForm(user).then(() => (this.props.history.push('/following')));
   }
 
   handleSubmit(e) {

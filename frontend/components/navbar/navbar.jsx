@@ -24,8 +24,8 @@ class NavBar extends React.Component {
     if (this.props.loggedIn){
       span = (
         <div className="user-info">
-          <span>Welcome, {this.props.currentUser.username}</span>
-          <button className = "logout" onClick={this.handleClick}>Sign Out</button>
+          <a className="username">Welcome, {this.props.currentUser.username}</a>
+          <a className = "logout" onClick={this.handleClick}>Sign Out</a>
         </div>);
     }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
       span = (<span></span>);

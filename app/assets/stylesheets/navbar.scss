@@ -26,3 +26,31 @@
 .navbar a img, .navbar-home a img {
   height: 50px;
 }
+
+.logout {
+  width: 70px;
+  width: 10vw;
+  font-size: 12px;
+  color: gray;
+  height: 30px;
+}
+
+a {
+  text-align: center;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  flex-direction: column;
+  margin-top: 20px;
+}
