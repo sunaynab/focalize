@@ -17,10 +17,10 @@ class NavBar extends React.Component {
     this.props.logOut().then(() => this.props.history.push('/sign-in'));
   }
 
-
-
   render () {
     let span;
+    let navBarClass = "navbar";
+    let image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png";
     if (this.props.loggedIn){
       span = (
         <div className="user-info">
@@ -34,11 +34,14 @@ class NavBar extends React.Component {
         <Link to='/sign-in'>Sign In</Link>
         <Link to='/sign-up'>Create New Account</Link>
       </span>);
+      navBarClass = "navbar-home";
+      image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,h_1072/v1506031449/focalizelogo_e0vkma.png";
     }
+
     return (
-      <div className="navbar">
+      <div className={navBarClass}>
         <Link to="/" className="header-link">
-          <img src="http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png"></img>
+          <img src={image}></img>
         </Link>
         {span}
       </div>

@@ -58,13 +58,18 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let fadeIn = "fadeInRight";
+    if (this.props.formType === "sign-in"){
+      fadeIn = "fadeInLeft";
+    }
+
     return (
     <div className={`fullpage-${this.props.formType}`}>
       <div className={`${this.props.formType}-images`}>
-        <img className= "sign-in-img" src="http://res.cloudinary.com/daesquwob/image/upload/v1506032460/sign_in_circles_po8xaf.png"></img>
-        <img className= "sign-up-img" src="http://res.cloudinary.com/daesquwob/image/upload/v1506037296/new_account_circles_tkoygq.png"></img>
+        <img className="sign-in-img animated fadeInRight" src="http://res.cloudinary.com/daesquwob/image/upload/v1506032460/sign_in_circles_po8xaf.png"></img>
+        <img className="sign-up-img animated fadeInLeft" src="http://res.cloudinary.com/daesquwob/image/upload/v1506037296/new_account_circles_tkoygq.png"></img>
       </div>
-      <div className={`${this.props.formType}-form-container`}>
+      <div className={`${this.props.formType}-form-container animated ${fadeIn}`}>
         <form onSubmit={this.handleSubmit} className={`${this.props.formType}-form-box`}>
           <br/>
           {this.navLink()}
@@ -93,7 +98,7 @@ class SessionForm extends React.Component {
             <br/>
             <div className="submit">
               <input type="submit" value={this.props.formType}/>
-              <button className="demoLogin" onClick={this.demoLogin}>guest login</button>
+              <button className="demoLogin" onClick={this.demoLogin}>guest sign-in</button>
             </div>
           </div>
         </form>

@@ -1,6 +1,4 @@
-.navbar {
-  background-color: #56b892;
-  color: white;
+.navbar, .navbar-home{
   height: 8vh;
   display: flex;
   align-items: center;
@@ -8,11 +6,23 @@
   width: 100vw;
 }
 
-.navbar a {
+.navbar {
+  background-color: #56b892;
+  color: white;
+}
+
+.navbar-home {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  z-index: 0;
+}
+
+.navbar a, .navbar-home a {
   margin-right: 15px;
   margin-left: 15px;
 }
 
-.navbar a img {
+.navbar a img, .navbar-home a img {
   height: 50px;
 }

@@ -9,11 +9,13 @@ import {
 import SessionFormContainer from './session_form/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Home from './home/home';
 
 const App = () => (
   <div className="everything">
     <NavBarContainer />
       <Switch>
+        <Route exact path="/" component={Home} />
         <AuthRoute path="/sign-in" component={SessionFormContainer} />
         <AuthRoute path="/sign-up" component={SessionFormContainer} />
       </Switch>
