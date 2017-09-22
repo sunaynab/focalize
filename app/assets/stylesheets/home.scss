@@ -1,13 +1,36 @@
-.home img {
-  width: 100vw;
-  position: absolute;
+.home {
+  height: 100vh;
+  background-image: url("http://res.cloudinary.com/daesquwob/image/upload/v1506098509/aldain-austria-316143_u066a2.jpg");
   z-index: -1;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.home span {
-
+.home span{
+  align-items: baseline;
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
 }
 
-.home Link {
+.home a {
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 25px;
+  padding: 8px;
+  color: white;
+  background-color: rgba(255,255,255,0.2);
+  margin-bottom: 115px;
+}
 
+.home a:active {
+  background-color: rgba(255,255,255,0.75);
+  color: black;
+}
+
+.home a:hover {
+  background-color: rgba(255,255,255,0.4)
 }
