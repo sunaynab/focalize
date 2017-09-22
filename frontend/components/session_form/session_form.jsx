@@ -25,10 +25,14 @@ class SessionForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  submit() {
     const user = this.state;
     this.props.submitForm(user).then(() => (this.props.history.push('/')));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.submit();
   }
 
   navLink() {
@@ -42,8 +46,7 @@ class SessionForm extends React.Component {
   demoLogin() {
     this.setState({username: "demoUser"});
     this.setState({password: "demosarecool"});
-    const user = this.state;
-    this.props.submitForm(user).then(() => (this.props.history.push('/')));
+    this.submit();
   }
 
   renderErrors() {

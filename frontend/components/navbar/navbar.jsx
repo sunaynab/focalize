@@ -19,8 +19,8 @@ class NavBar extends React.Component {
 
   render () {
     let span;
-    let navBarClass = "navbar";
-    let image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png";
+    let navBarClass = "navbar-home";
+    let image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,h_1072/v1506031449/focalizelogo_e0vkma.png";
     if (this.props.loggedIn){
       span = (
         <div className="user-info">
@@ -29,13 +29,14 @@ class NavBar extends React.Component {
         </div>);
     }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
       span = (<span></span>);
+    }else if (!(this.props.location.pathname === '/')){
+      navBarClass = "navbar";
+      image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png";
     }else{
       span = (<span>
         <Link to='/sign-in'>Sign In</Link>
         <Link to='/sign-up'>Create New Account</Link>
       </span>);
-      navBarClass = "navbar-home";
-      image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,h_1072/v1506031449/focalizelogo_e0vkma.png";
     }
 
     return (
