@@ -17,4 +17,6 @@
 @import "reset-css";
 @import "static_pages";
 @import "fonts";
-@import "./api/sessions.scss";
+@import "./api/sessions";
+@import 'navbar';
+@import 'home';

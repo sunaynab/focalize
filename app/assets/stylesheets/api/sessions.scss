@@ -2,32 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-body {
-  background: image-url('login_splash_screen.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.navbar {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar a {
-  margin-left: 20px;
-}
-
 .user-info {
   display: flex;
   align-items: center;
   margin-right: 20px;
   flex-direction: column;
+}
+
+.fullpage-sign-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fullpage-sign-up {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
 }
 
 // Toggles display of email depending on formType
@@ -37,6 +28,25 @@ body {
 
 .sign-up-form-container .email-input {
   display: flex;
+}
+
+.sign-in-images, .sign-up-images {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.sign-in-images .sign-in-img, .sign-up-images .sign-up-img {
+  height: 80vh;
+  align-self: center;
+}
+
+.sign-in-images .sign-up-img {
+  display: none;
+}
+
+.sign-up-images .sign-in-img {
+  display: none;
 }
 
 .sign-up-form-container button {
@@ -54,56 +64,27 @@ body {
 }
 
 .sign-in-form-container{
-  display: flex;
-  width: 40%;
-  padding: 0px 20px 20px 20px;
-  border: 1px solid white;
-  border-radius: 7px;
   margin-right: 40px;
-  margin-top: 20px;
-  height: 300px;
-  justify-content: center;
-  background-color: rgba(0,0,0,0.1);
-  float: right;
-  align-items: center;
 }
 
 .sign-up-form-container{
-  display: flex;
-  width: 40%;
-  padding: 0px 20px 20px 20px;
-  border-radius: 7px;
-  border: 1px solid white;
   margin-left: 40px;
-  margin-top: 20px;
-  height: 300px;
-  background-color: rgba(0,0,0,0.1);
-  justify-content: center;
-  align-items: center;
 }
 
-.sign-up-form-box{
+.sign-in-form-container, .sign-up-form-container {
   display: flex;
-  width: 80%;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid white;
+  border-radius: 7px;
+  margin-top: 40px;
   justify-content: center;
-  flex-direction: column;
+  float: right;
   align-items: center;
-}
-
-.sign-in-form-box{
-  display: flex;
-  width: 80%;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.sign-in-form {
-  width: 100%;
-}
-
-.sign-up-form {
-  width: 100%;
+  background: image-url('login_splash_screen.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 80vh;
+  width: 30vw;
+  min-width: 350px;
 }
 
 .submit {
@@ -119,7 +100,8 @@ input {
 }
 
 input[type=text], input[type=password] {
-  width: 100%;
+  max-width: 300px;
+  width: 100vw;
   height: 35px;
   border: 1px solid rgba(255,255,255,0);
   border-radius: 25px;
@@ -127,16 +109,17 @@ input[type=text], input[type=password] {
   padding-left: 2px;
   text-indent: 10px;
   font-size: 12px;
-  color: white;
+  color: black;
   background-image: image-url('user.png') no-repeat scroll 7px 7px;
 }
 
 input[type=submit], button {
   width: 40%;
+  max-width: 300px;
+  max-width: 175px;
   border: 0.5px solid white;
   border-radius: 25px;
   background-color: transparent;
-  height: 40%;
   font-size: 12px;
   color: white;
   height: 30px;
@@ -171,6 +154,7 @@ input[type=submit]:focus, button:focus {
 
 input[type=submit]:active , button:active{
   background-color: rgba(255,255,255,0.75);
+  color: black;
 }
 
 .Links span {
@@ -189,6 +173,7 @@ input[type=submit]:active , button:active{
 .Links {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .logout {

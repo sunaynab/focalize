@@ -14,10 +14,6 @@ section, p, footer, small {
   background: transparent;
 }
 
-body {
-  height: 100%
-}
-
 header, nav, main, section,
 footer, small {
   display: block;

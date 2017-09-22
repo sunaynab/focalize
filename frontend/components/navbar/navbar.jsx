@@ -25,7 +25,7 @@ class NavBar extends React.Component {
           <span>Welcome, {this.props.currentUser.username}</span>
           <button className = "logout" onClick={this.handleClick}>Sign Out</button>
         </div>);
-    }else if (this.props.location.pathname === ('/sign-in') || ('/sign-up')){
+    }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
       span = (<span></span>);
     }else{
       span = (<span>
@@ -36,7 +36,7 @@ class NavBar extends React.Component {
     return (
       <div className="navbar">
         <Link to="/" className="header-link">
-          <h1>focalize</h1>
+          <img src="http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png"></img>
         </Link>
         {span}
       </div>

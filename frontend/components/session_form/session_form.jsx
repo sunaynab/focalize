@@ -53,7 +53,11 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-    <div className="fullpage">
+    <div className={`fullpage-${this.props.formType}`}>
+      <div className={`${this.props.formType}-images`}>
+        <img className= "sign-in-img" src="http://res.cloudinary.com/daesquwob/image/upload/v1506032460/sign_in_circles_po8xaf.png"></img>
+        <img className= "sign-up-img" src="http://res.cloudinary.com/daesquwob/image/upload/v1506037296/new_account_circles_tkoygq.png"></img>
+      </div>
       <div className={`${this.props.formType}-form-container`}>
         <form onSubmit={this.handleSubmit} className={`${this.props.formType}-form-box`}>
           <br/>
