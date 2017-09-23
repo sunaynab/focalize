@@ -1,18 +1,25 @@
-const fetchPhotos = () => (
+export const fetchUserPhotos = userId => (
   $.ajax({
     method: "GET",
-    url: "api/photos"
+    url: `api/users/${userId}/photos/`
   })
 );
 
-const fetchPhoto = id => (
+export const fetchPhotos = () => (
+  $.ajax({
+    method: "GET",
+    url: "api/users/photos"
+  })
+);
+
+export const fetchPhoto = id => (
   $.ajax({
     method: "GET",
     url: `api/photos/${id}`
   })
 );
 
-const addPhoto = photo => (
+export const addPhoto = photo => (
   $.ajax({
     method: "POST",
     url: `api/photos`,
@@ -20,7 +27,7 @@ const addPhoto = photo => (
   })
 );
 
-const deletePhoto = photo => (
+export const deletePhoto = photo => (
   $.ajax({
     method: "DELETE",
     url: `api/photos/${photo.id}`

@@ -5,6 +5,9 @@ export const RECEIVE_PHOTO = "RECEIVE PHOTO";
 export const REMOVE_PHOTO = "REMOVE_PHOTO";
 export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const CLEAR_PHOTO_ERRORS = "CLEAR_PHOTO_ERRORS";
+export const START_LOADING_PHOTOS = "START_LOADING_PHOTOS";
+export const START_LOADING_PHOTO = "START_LOADING_PHOTO";
+
 
 export const receivePhotos = photos => ({
   type: RECEIVE_PHOTOS,
@@ -30,8 +33,16 @@ export const clearErrors = () => ({
   type: CLEAR_PHOTO_ERRORS
 });
 
+// export const startLoadingPhotos = () => ({
+//   type: START_LOADING_PHOTOS
+// });
+//
+// export const startLoadingPhoto = () => ({
+//   type: START_LOADING_PHOTO
+// });
+
 export const getPhoto = id => dispatch => (
-  PhotoAPIUtil.getPhoto(id).then(photo => (
+  PhotoAPIUtil.fetchPhoto(id).then(photo => (
     dispatch(receivePhoto(photo))
   )), err => (
     dispatch(receiveErrors(err.responseJSON))
@@ -46,11 +57,18 @@ export const addPhoto = photo => dispatch => (
   )
 );
 
-export const getPhotos = () => dispatch => (
-  PhotoAPIUtil.getPhotos().then(photos => (
+export const getUserPhotos = userId => dispatch => (
+  PhotoAPIUtil.fetchUserPhotos(userId).then(photos => (
     dispatch(receivePhotos(photos))
   ))
 );
+
+export const getPhotos = () => dispatch => {
+  // dispatch(startLoadingPhotos());
+  return PhotoAPIUtil.fetchPhotos().then(photos => (
+    dispatch(receivePhotos(photos))
+  ));
+};
 
 export const deletePhoto = photo => dispatch => (
   PhotoAPIUtil.deletePhoto(photo.id).then((pic => (

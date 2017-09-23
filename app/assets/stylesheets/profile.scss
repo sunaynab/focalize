@@ -1,0 +1,38 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  margin-top: 100px;
+  margin-right: 10vw;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  width: 25vw;
+  font-size: 14px;
+  min-width: 140px;
+
+}
+
+.pictures-grid {
+  width: 90vw;
+}
+
+.pictures-grid > ul {
+  margin: 8px;
+  width: 200px;
+  font-size: 0;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.pictures-grid img {
+  display: inline-block;
+  margin-bottom: 8px;
+}

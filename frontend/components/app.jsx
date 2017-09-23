@@ -14,12 +14,13 @@ import Following from './following/following';
 import ProfileContainer from './profile/profile_container';
 
 
+
 const App = () => (
   <div className="everything">
     <NavBarContainer />
       <Switch>
         <AuthRoute exact path="/" component={Home} />
-        <ProtectedRoute path="/profile" component={ProfileContainer} />
+        <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         <ProtectedRoute path="/following" component={Following} />
         <AuthRoute path="/sign-in" component={SessionFormContainer} />
         <AuthRoute path="/sign-up" component={SessionFormContainer} />

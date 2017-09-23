@@ -2,15 +2,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getPhoto,
          addPhoto,
-         getPhotos,
+         getUserPhotos,
          deletePhoto} from '../../actions/photo_actions';
 import Profile from './profile';
 import {getAllUserPhotos} from '../../reducers/selectors';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     photos: getAllUserPhotos(state),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    userId: ownProps.match.params.userId
   };
 };
 
@@ -18,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getPhoto: id => dispatch(getPhoto(id)),
     addPhoto: photo => dispatch(addPhoto(photo)),
-    getPhotos: () => dispatch(getPhotos()),
+    getUserPhotos: userId => dispatch(getUserPhotos(userId)),
     deletePhoto: id => dispatch(deletePhoto(id))
   };
 };
