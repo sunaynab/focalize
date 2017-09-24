@@ -23,16 +23,12 @@
 }
 
 .pictures-grid > ul {
-  margin: 8px;
-  width: 200px;
-  font-size: 0;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: inherit;
 }
 
 .pictures-grid img {
-  display: inline-block;
-  margin-bottom: 8px;
+  width: 180px;
+  margin: 8px;
+  float: left;
+  height: auto;
 }

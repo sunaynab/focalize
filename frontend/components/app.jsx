@@ -12,6 +12,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Home from './home/home';
 import Following from './following/following';
 import ProfileContainer from './profile/profile_container';
+import PhotoDetailContainer from './photos/photos_container';
 
 
 
@@ -20,6 +21,7 @@ const App = () => (
     <NavBarContainer />
       <Switch>
         <AuthRoute exact path="/" component={Home} />
+        <ProtectedRoute path="/photos/:photoId" component={PhotoDetailContainer} />
         <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
         <ProtectedRoute path="/following" component={Following} />
         <AuthRoute path="/sign-in" component={SessionFormContainer} />

@@ -9,7 +9,7 @@ import {getAllUserPhotos} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    photos: getAllUserPhotos(state),
+    photos: getAllUserPhotos(state.entities),
     currentUser: state.session.currentUser,
     userId: ownProps.match.params.userId
   };
