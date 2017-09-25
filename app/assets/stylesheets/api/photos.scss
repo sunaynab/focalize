@@ -1,3 +1,68 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.photo img {
+  width: 100vw;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+}
+
+.photo {
+  display: flex;
+  align-content: flex-end;
+}
+
+.profile-page-image, .profile-image {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid white;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.profile-page-image {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.profile-info {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-top: 10px;
+  color: white;
+  margin-left: 10px;
+}
+
+Link:hover {
+  cursor: default;
+}
+
+Link img:hover, Link span:hover {
+  cursor: pointer;
+}
+
+.profile-image {
+  margin-right: 5px;
+}
+
+.profile-page-image img, .profile-image img{
+  width: auto;
+  height: 100%;
+  z-index: 0;
+}
+
+.picture:hover {
+  cursor: zoom-out;
+}

@@ -7,8 +7,9 @@
 }
 
 .navbar {
-  background-color: #56b892;
-  color: white;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 1px 100px #dee0e2;
 }
 
 .navbar-home {
@@ -19,7 +20,6 @@
 }
 
 .navbar a, .navbar-home a {
-  margin-right: 15px;
   margin-left: 15px;
 }
 
@@ -28,15 +28,16 @@
 }
 
 .logout {
-  width: 70px;
-  width: 10vw;
+  min-width: 70px;
+  width: 100%;
   font-size: 12px;
   color: gray;
   height: 30px;
+  margin-right: 18px;
 }
 
 a {
-  text-align: center;
+  text-align: right;
   min-width: 50px;
 }
 

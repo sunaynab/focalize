@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20170924193743) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "profile_image_url"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"

@@ -47,11 +47,11 @@ export const receiveUser = user => ({
 //   type: START_LOADING_PHOTO
 // });
 
-// export const getUser = photo => dispatch => (
-// PhotoAPIUtil.fetchUser(photo).then(user => (
-//     dispatch(receiveUser(user))
-//   ))
-// );
+export const getUser = photo => dispatch => (
+PhotoAPIUtil.fetchUser(photo).then(user => (
+    dispatch(receiveUser(user))
+  ))
+);
 
 export const getPhoto = id => dispatch => (
   PhotoAPIUtil.fetchPhoto(id).then(photo => {

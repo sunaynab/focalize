@@ -1,12 +1,11 @@
 .profile-page {
   display: flex;
   flex-direction: column;
-  align-self: center;
   align-items: center;
+  align-content: center;
   justify-content: flex-start;
   position: absolute;
-  margin-top: 100px;
-  margin-right: 10vw;
+  width: 100vw;
 }
 
 .stats {
@@ -20,6 +19,7 @@
 
 .pictures-grid {
   width: 90vw;
+  align-content: center;
 }
 
 .pictures-grid > ul {
@@ -31,4 +31,8 @@
   margin: 8px;
   float: left;
   height: auto;
+}
+
+.zoom:hover{
+  cursor: zoom-in;
 }

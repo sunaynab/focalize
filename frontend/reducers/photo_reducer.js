@@ -15,7 +15,7 @@ const PhotoReducer = (state = {}, action) => {
       const photos = action.photos;
       return merge({}, photos);
     case RECEIVE_PHOTO:
-      return Object.assign({}, newState, {[action.photo.id]: action.photo});
+      return Object.assign({}, action.photo);
     case REMOVE_PHOTO:
       delete newState[action.photo.id];
       return newState;

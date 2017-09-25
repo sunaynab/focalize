@@ -34,7 +34,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'paperclip', '~> 5.0.0.beta1'
 gem 'figaro'
-gem 'aws-sdk', '>=2.0'
+gem 'aws-sdk', '~> 2.3.0'
 gem 'autoprefixer-rails'
 
 group :development, :test do

@@ -1,5 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Modal from 'react-modal';
+import PhotoModal from './modal';
+
+let className = "hide";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -13,7 +17,7 @@ class Profile extends React.Component {
   photoLinks() {
     const links = this.props.photos.map(photo => (
       <ul>
-        <Link to={`/photos/${photo.id}`}>
+        <Link className="zoom" to={`/photos/${photo.id}`}>
           <img src={photo.image_url}></img>
         </Link>
       </ul>
@@ -25,8 +29,10 @@ class Profile extends React.Component {
   render() {
     return (
     <div className="profile-page">
-      <div className="profile-image">Profile Picture</div>
-      <span></span>
+      <div className="profile-page-image">
+        <img src={this.props.user.image_url}></img>
+      </div>
+      <span>{this.props.user.username}</span>
       <div className="stats">
         <span># followers</span>
         <span># following</span>

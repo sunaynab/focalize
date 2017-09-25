@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { getPhoto,
          addPhoto,
          getUserPhotos,
-         deletePhoto} from '../../actions/photo_actions';
+         deletePhoto,
+         getUser} from '../../actions/photo_actions';
 import Profile from './profile';
 import {getAllUserPhotos} from '../../reducers/selectors';
 
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     photos: getAllUserPhotos(state.entities),
     currentUser: state.session.currentUser,
-    userId: ownProps.match.params.userId
+    userId: ownProps.match.params.userId,
+    user: state.entities.user
   };
 };
 
@@ -20,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     getPhoto: id => dispatch(getPhoto(id)),
     addPhoto: photo => dispatch(addPhoto(photo)),
     getUserPhotos: userId => dispatch(getUserPhotos(userId)),
-    deletePhoto: id => dispatch(deletePhoto(id))
+    deletePhoto: id => dispatch(deletePhoto(id)),
+    getUser: photo => dispatch(getUser(photo))
   };
 };
 

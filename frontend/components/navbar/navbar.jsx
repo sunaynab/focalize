@@ -22,17 +22,18 @@ class NavBar extends React.Component {
     let navBarClass = "navbar-home";
     let image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,h_1072/v1506031449/focalizelogo_e0vkma.png";
     if (this.props.loggedIn){
+      // signed-in
       span = (
         <div className="user-info">
           <a className="username">Welcome, {this.props.currentUser.username}</a>
           <a className = "logout" onClick={this.handleClick}>Sign Out</a>
         </div>);
-    }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
-      span = (<span></span>);
-    }else if (!(this.props.location.pathname === '/')){
       navBarClass = "navbar";
-      image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,w_1034/v1506031449/focalizelogow_mg1lwt.png";
+    }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
+      // sign-in/sign-up page
+      span = (<span></span>);
     }else{
+      // homepage not signed in
       span = (<span>
         <Link to='/sign-in'>Sign In</Link>
         <Link to='/sign-up'>Create New Account</Link>
