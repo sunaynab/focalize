@@ -75,6 +75,8 @@ export const addPhoto = photo => dispatch => (
 export const getUserPhotos = userId => dispatch => (
   PhotoAPIUtil.fetchUserPhotos(userId).then(photos => (
     dispatch(receivePhotos(photos))
+  )), UserAPIUtil.fetchUser(userId).then(user => (
+    dispatch(receiveUser(user))
   ))
 );
 

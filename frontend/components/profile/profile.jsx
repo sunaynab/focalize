@@ -14,9 +14,15 @@ class Profile extends React.Component {
     this.props.getUserPhotos(this.props.userId);
   }
 
+  componentWillReceiveProps(newProps){
+    if(this.props.match.params !== newProps.match.params){
+      this.props.getUserPhotos(newProps.userId);
+    }
+  }
+
   photoLinks() {
     const links = this.props.photos.map(photo => (
-        <Link className="zoom" to={`/photos/${photo.id}`}>
+        <Link key={`photo${photo.id}`}className="zoom" to={`/photos/${photo.id}`}>
           <img src={photo.image_url}></img>
         </Link>
     ));
@@ -30,10 +36,9 @@ class Profile extends React.Component {
       <div className="profile-page-image">
         <img src={this.props.user.image_url}></img>
       </div>
-      <span>{this.props.user.username}</span>
+      <span className= "name">{this.props.user.username}</span>
       <div className="stats">
-        <span># followers</span>
-        <span># following</span>
+        <span># followers</span><span># following</span>
       </div>
       <button className="following-button">Following Status</button>
       <div className="pictures-grid">
