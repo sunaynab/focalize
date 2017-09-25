@@ -20,6 +20,7 @@ class NavBar extends React.Component {
   render () {
     let span;
     let navBarClass = "navbar-home";
+    const matcher = new RegExp('photos\/.*');
     let image = "http://res.cloudinary.com/daesquwob/image/upload/c_scale,h_1072/v1506031449/focalizelogo_e0vkma.png";
     if (this.props.loggedIn){
       // signed-in
@@ -29,6 +30,9 @@ class NavBar extends React.Component {
           <a className = "logout" onClick={this.handleClick}>Sign Out</a>
         </div>);
       navBarClass = "navbar";
+      if (matcher.test(this.props.location.pathname)){
+        navBarClass = "hidden";
+      }
     }else if ((this.props.location.pathname === '/sign-in') || (this.props.location.pathname === '/sign-up')){
       // sign-in/sign-up page
       span = (<span></span>);

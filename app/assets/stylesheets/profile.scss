@@ -1,3 +1,4 @@
+
 .profile-page {
   display: flex;
   flex-direction: column;
@@ -14,25 +15,34 @@
   width: 25vw;
   font-size: 14px;
   min-width: 140px;
-
 }
 
 .pictures-grid {
   width: 90vw;
-  align-content: center;
-}
-
-.pictures-grid > ul {
-  width: inherit;
+  line-height: 0;
+  margin: 4px;
+  column-count: 4;
+  column-gap: 5px;
 }
 
 .pictures-grid img {
-  width: 180px;
-  margin: 8px;
+  width: 100%;
   float: left;
   height: auto;
+  margin-top: 3px;
+  margin-bottom: 2px;
 }
 
 .zoom:hover{
   cursor: zoom-in;
+}
+
+.following-button {
+  background-color: gray;
+  align-self: flex-end;
+  margin-right: 5%;
+}
+
+.following-button:hover {
+  background-color: lightgray;
 }

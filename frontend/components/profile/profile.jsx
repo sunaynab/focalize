@@ -16,11 +16,9 @@ class Profile extends React.Component {
 
   photoLinks() {
     const links = this.props.photos.map(photo => (
-      <ul>
         <Link className="zoom" to={`/photos/${photo.id}`}>
           <img src={photo.image_url}></img>
         </Link>
-      </ul>
     ));
 
     return links;
@@ -37,7 +35,7 @@ class Profile extends React.Component {
         <span># followers</span>
         <span># following</span>
       </div>
-      <button>Following Status</button>
+      <button className="following-button">Following Status</button>
       <div className="pictures-grid">
         {this.photoLinks()}
       </div>

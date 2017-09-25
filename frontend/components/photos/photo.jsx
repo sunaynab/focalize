@@ -12,7 +12,7 @@ class PhotoDetail extends React.Component {
 
   render(){
     return(
-      <div className="photo animate slideInUp">
+      <div className="photo animated fadeInUp">
         <img className= "picture" src={this.props.photo.image_url} onClick={this.props.history.goBack}></img>
         <Link className="profile-info" to={`users/${this.props.user.id}`}>
           <div className="profile-image">

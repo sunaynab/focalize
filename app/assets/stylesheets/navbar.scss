@@ -21,6 +21,11 @@
 
 .navbar a, .navbar-home a {
   margin-left: 15px;
+  margin-right: 15px;
+}
+
+.navbar .username {
+  margin-right: 0px;
 }
 
 .navbar a img, .navbar-home a img {
@@ -55,4 +60,8 @@ a:hover {
   margin-right: 20px;
   flex-direction: column;
   margin-top: 20px;
+}
+
+.hidden {
+  display: none;
 }
