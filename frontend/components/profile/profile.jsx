@@ -2,15 +2,23 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Modal from 'react-modal';
 import PhotoModal from './modal';
+import Dropzone from 'react-dropzone';
 
 let className = "hide";
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {modalIsOpen: false, imageUrl: "", imageFile: null};
     this.deleteButton = this.deleteButton.bind(this);
-    this.state = {modalIsOpen: "false"};
+    this.addPhotoClick = this.addPhotoClick.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // photos
 
   componentDidMount() {
     this.props.getUserPhotos(this.props.userId);
@@ -25,13 +33,9 @@ class Profile extends React.Component {
   deleteButton(photoId){
     if(parseInt(this.props.match.params.userId) === this.props.currentUser.id){
       return (
-        <button className="delete-button" onClick={() => this.props.deletePhoto(photoId)}>X</button>
+        <button className="delete-button" key={`del${photoId}`} onClick={() => this.props.deletePhoto(photoId)}>X</button>
       );
     }
-  }
-
-  addPhotoClick(){
-
   }
 
   photoLinks() {
@@ -40,9 +44,9 @@ class Profile extends React.Component {
       deleteButton = this.deleteButton;
     }
     const links = this.props.photos.map(photo => (
-      <div className="photo-links">
+      <div key={`div${photo.id}`} className="photo-links">
         <Link key={`photo${photo.id}`}className="zoom" to={`/photos/${photo.id}`}>
-          <img src={photo.image_url}></img>
+          <img key={`pic${photo.id}`}src={photo.image_url}></img>
         </Link>
           {deleteButton(photo.id)}
       </div>
@@ -51,12 +55,63 @@ class Profile extends React.Component {
     return links;
   }
 
+  //Modal
+
+  onImageDrop(files) {
+    this.handleImageUpload(files[0]);
+  }
+
+  handleImageUpload(file) {
+    const reader = new FileReader();
+    reader.onloadend = () =>
+      this.setState({ imageUrl: reader.result, imageFile: file});
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+  addPhotoClick(){
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal(){
+    this.setState({modalIsOpen: false});
+  }
+
+  handleSubmit() {
+    const formData = new FormData();
+    formData.append("photo[user]", parseInt(this.props.currentUser.id));
+    formData.append("photo[image]", this.state.imageFile);
+    this.props.addPhoto(formData);
+  }
+
+  // render
+
   render() {
+    const addPhoto = this.props.addPhoto;
+    const currentUser = this.props.currentUser;
+    const imageFile = this.state.imageFile;
     return (
     <div className="profile-page">
+      <div className="submit-photo">
+        <button className="new-photo" onClick={this.addPhotoClick}>+</button>
+        <span>Submit Photo</span>
+      </div>
       <Modal
         isOpen={this.state.modalIsOpen}
-        onHide={this.close}></Modal>
+        contentLabel="add-photo-modal">
+        <a onClick={this.closeModal}>x</a>
+        <Dropzone
+          accept="image/*"
+          onDrop={this.onImageDrop}>
+          <p>Drop an image to submit or click to select a file to upload.</p>
+          <img src={this.state.imageUrl}></img>
+          <button type="submit" className="modal-submit"
+            onClick={this.handleSubmit}>
+          </button>
+        </Dropzone>
+      </Modal>
       <div className="submit-photo-div">
         <button className="submit-button"></button>
       </div>
