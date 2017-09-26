@@ -17,6 +17,7 @@ const PhotoReducer = (state = {}, action) => {
     case RECEIVE_PHOTO:
       return Object.assign({}, action.photo);
     case REMOVE_PHOTO:
+      debugger;
       delete newState[action.photo.id];
       return newState;
     default:

@@ -27,10 +27,10 @@ export const addPhoto = photo => (
   })
 );
 
-export const deletePhoto = photo => (
+export const deletePhoto = id => (
   $.ajax({
     method: "DELETE",
-    url: `api/photos/${photo.id}`
+    url: `api/photos/${id}`
   })
 );
 

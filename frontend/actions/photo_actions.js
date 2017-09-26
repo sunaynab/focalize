@@ -87,8 +87,8 @@ export const getPhotos = () => dispatch => {
   ));
 };
 
-export const deletePhoto = photo => dispatch => (
-  PhotoAPIUtil.deletePhoto(photo.id).then((pic => (
+export const deletePhoto = id => dispatch => (
+  PhotoAPIUtil.deletePhoto(id).then((pic => (
     dispatch(removePhoto(pic)))
   ))
 );

@@ -27,6 +27,7 @@ class Api::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     if @photo
       @photo.destroy!
+      render json: @photo
     else
       render json: ['This photo does not exist'], status: 404
     end

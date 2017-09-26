@@ -8,6 +8,8 @@ let className = "hide";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    this.deleteButton = this.deleteButton.bind(this);
+    this.state = {modalIsOpen: "false"};
   }
 
   componentDidMount() {
@@ -20,11 +22,30 @@ class Profile extends React.Component {
     }
   }
 
+  deleteButton(photoId){
+    if(parseInt(this.props.match.params.userId) === this.props.currentUser.id){
+      return (
+        <button className="delete-button" onClick={() => this.props.deletePhoto(photoId)}>X</button>
+      );
+    }
+  }
+
+  addPhotoClick(){
+
+  }
+
   photoLinks() {
+    let deleteButton;
+    if (this.props.photos.length !== 0){
+      deleteButton = this.deleteButton;
+    }
     const links = this.props.photos.map(photo => (
+      <div className="photo-links">
         <Link key={`photo${photo.id}`}className="zoom" to={`/photos/${photo.id}`}>
           <img src={photo.image_url}></img>
         </Link>
+          {deleteButton(photo.id)}
+      </div>
     ));
 
     return links;
@@ -33,6 +54,12 @@ class Profile extends React.Component {
   render() {
     return (
     <div className="profile-page">
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        onHide={this.close}></Modal>
+      <div className="submit-photo-div">
+        <button className="submit-button"></button>
+      </div>
       <div className="profile-page-image">
         <img src={this.props.user.image_url}></img>
       </div>
