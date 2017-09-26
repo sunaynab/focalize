@@ -15,11 +15,8 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    debugger
-    if @photo.save
-      render "api/users/show"
-    else
+    @photo = Photo.new(user_id: current_user.id, image: photo_params[:image])
+    unless @photo.save
       render json: @photo.errors.full_messages
     end
   end

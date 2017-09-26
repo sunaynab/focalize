@@ -10,10 +10,12 @@
 #
 
 class Photo < ApplicationRecord
-  validates :image_url, presence: true
   validates :user_id, presence: true
+  validates :image, presence: true
 
-  has_attached_file :image
+  has_attached_file :image, 
+  :url =>':s3_domain_url',
+  :path => '/:class/:attachment/:id_partition/:style/:filename'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :user,

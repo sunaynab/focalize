@@ -6,6 +6,31 @@ import Dropzone from 'react-dropzone';
 
 let className = "hide";
 
+const modalStyle = {
+  overlay : {
+    position        : 'fixed',
+    top             : 0,
+    left            : 0,
+    right           : 0,
+    bottom          : 0,
+    backgroundColor : 'rgba(255, 255, 255, 0.5)',
+    zIndex          : 10
+  },
+  content : {
+    position        : 'fixed',
+    top             : '50px',
+    left            : '300px',
+    right           : '300px',
+    bottom          : '50px',
+    border          : '1px solid #ccc',
+    padding         : '50px',
+    overflow        : 'none',
+    zIndex          : 11,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)'
+
+  }
+};
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -81,7 +106,6 @@ class Profile extends React.Component {
 
   handleSubmit() {
     const formData = new FormData();
-    formData.append("photo[user]", parseInt(this.props.currentUser.id));
     formData.append("photo[image]", this.state.imageFile);
     this.props.addPhoto(formData);
   }
@@ -100,15 +124,17 @@ class Profile extends React.Component {
       </div>
       <Modal
         isOpen={this.state.modalIsOpen}
-        contentLabel="add-photo-modal">
+        contentLabel="add-photo-modal"
+        style = {modalStyle}>
         <a onClick={this.closeModal}>x</a>
         <Dropzone
           accept="image/*"
-          onDrop={this.onImageDrop}>
+          onDrop={this.onImageDrop}
+          className="dropzone">
           <p>Drop an image to submit or click to select a file to upload.</p>
           <img src={this.state.imageUrl}></img>
           <button type="submit" className="modal-submit"
-            onClick={this.handleSubmit}>
+            onClick={this.handleSubmit}>Submit
           </button>
         </Dropzone>
       </Modal>
