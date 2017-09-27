@@ -17,7 +17,9 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_attached_file :image, default_url: "user.png"
+  has_attached_file :image, default_url: "user.png",
+  :url =>':s3_domain_url',
+  :path => '/:class/:attachment/:id_partition/:style/:filename'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   after_initialize :ensure_session_token

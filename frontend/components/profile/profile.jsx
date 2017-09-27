@@ -1,46 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Modal from 'react-modal';
 import PhotoModal from './modal';
-import Dropzone from 'react-dropzone';
+
 
 let className = "hide";
-
-const modalStyle = {
-  overlay : {
-    position        : 'fixed',
-    top             : 0,
-    left            : 0,
-    right           : 0,
-    bottom          : 0,
-    backgroundColor : 'rgba(255, 255, 255, 0.5)',
-    zIndex          : 10
-  },
-  content : {
-    position        : 'fixed',
-    top             : '50px',
-    left            : '300px',
-    right           : '300px',
-    bottom          : '50px',
-    border          : '1px solid #ccc',
-    padding         : '50px',
-    overflow        : 'none',
-    zIndex          : 11,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)'
-
-  }
-};
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {modalIsOpen: false, imageUrl: "", imageFile: null};
-    this.deleteButton = this.deleteButton.bind(this);
+    this.state = {modalIsOpen: false};
     this.addPhotoClick = this.addPhotoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.onImageDrop = this.onImageDrop.bind(this);
-    this.handleImageUpload = this.handleImageUpload.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteButton = this.deleteButton.bind(this);
   }
 
   // photos
@@ -82,32 +53,12 @@ class Profile extends React.Component {
 
   //Modal
 
-  onImageDrop(files) {
-    this.handleImageUpload(files[0]);
-  }
-
-  handleImageUpload(file) {
-    const reader = new FileReader();
-    reader.onloadend = () =>
-      this.setState({ imageUrl: reader.result, imageFile: file});
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  }
-
   addPhotoClick(){
     this.setState({modalIsOpen: true});
   }
 
   closeModal(){
     this.setState({modalIsOpen: false});
-  }
-
-  handleSubmit() {
-    const formData = new FormData();
-    formData.append("photo[image]", this.state.imageFile);
-    this.props.addPhoto(formData);
   }
 
   // render
@@ -122,22 +73,8 @@ class Profile extends React.Component {
         <button className="new-photo" onClick={this.addPhotoClick}>+</button>
         <span>Submit Photo</span>
       </div>
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        contentLabel="add-photo-modal"
-        style = {modalStyle}>
-        <a onClick={this.closeModal}>x</a>
-        <Dropzone
-          accept="image/*"
-          onDrop={this.onImageDrop}
-          className="dropzone">
-          <p>Drop an image to submit or click to select a file to upload.</p>
-          <img src={this.state.imageUrl}></img>
-          <button type="submit" className="modal-submit"
-            onClick={this.handleSubmit}>Submit
-          </button>
-        </Dropzone>
-      </Modal>
+      <PhotoModal modalIsOpen={this.state.modalIsOpen}
+        closeModal={this.closeModal}/>
       <div className="submit-photo-div">
         <button className="submit-button"></button>
       </div>
