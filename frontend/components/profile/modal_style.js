@@ -10,10 +10,9 @@ const modalStyle = {
   },
   content : {
     position        : 'fixed',
-    top             : '50px',
-    left            : '300px',
-    right           : '300px',
-    bottom          : '50px',
+    width           : '60vw',
+    marginLeft      : '13vw',
+    height          : 'auto',
     border          : '1px solid #ccc',
     padding         : '20px 50px 50px 50px',
     overflow        : 'none',

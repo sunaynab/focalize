@@ -29,6 +29,16 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :Photo
 
+  has_many :followers,
+  primary_key: :id,
+  foreign_key: :user_following_id,
+  class_name: :Follow
+
+  has_many :following,
+  primary_key: :id,
+  foreign_key: :follower_id,
+  class_name: :Follow
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

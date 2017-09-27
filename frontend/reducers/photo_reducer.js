@@ -3,7 +3,8 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_PHOTOS,
   RECEIVE_PHOTO,
-  REMOVE_PHOTO
+  REMOVE_PHOTO,
+  ADD_PHOTO
 } from '../actions/photo_actions';
 
 
@@ -16,8 +17,9 @@ const PhotoReducer = (state = {}, action) => {
       return merge({}, photos);
     case RECEIVE_PHOTO:
       return Object.assign({}, action.photo);
+    case ADD_PHOTO:
+      return Object.assign({}, state, {[action.photo.id]: action.photo});
     case REMOVE_PHOTO:
-      debugger;
       delete newState[action.photo.id];
       return newState;
     default:

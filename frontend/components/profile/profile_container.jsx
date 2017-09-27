@@ -4,7 +4,8 @@ import { getPhoto,
          addPhoto,
          getUserPhotos,
          deletePhoto,
-         getUser} from '../../actions/photo_actions';
+         getUser,} from '../../actions/photo_actions';
+import { addProfilePhoto } from '../../actions/user_actions';
 import Profile from './profile';
 import {getAllUserPhotos} from '../../reducers/selectors';
 
@@ -23,7 +24,8 @@ const mapDispatchToProps = (dispatch) => {
     addPhoto: photo => dispatch(addPhoto(photo)),
     getUserPhotos: userId => dispatch(getUserPhotos(userId)),
     deletePhoto: id => dispatch(deletePhoto(id)),
-    getUser: photo => dispatch(getUser(photo))
+    getUser: photo => dispatch(getUser(photo)),
+    addProfilePhoto: (image, userId) => dispatch(addProfilePhoto(image, userId))
   };
 };
 

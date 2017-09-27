@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_USER } from '../actions/photo_actions';
+import { RECEIVE_USER, RECEIVE_PROFILE_PHOTO } from '../actions/photo_actions';
 
 const UserReducer = (state = {}, action) => {
   Object.freeze(state);

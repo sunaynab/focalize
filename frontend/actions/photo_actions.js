@@ -4,6 +4,7 @@ import * as UserAPIUtil from '../util/user_api_util';
 export const RECEIVE_PHOTOS = "RECEIVE_PHOTOS";
 export const RECEIVE_PHOTO = "RECEIVE PHOTO";
 export const REMOVE_PHOTO = "REMOVE_PHOTO";
+export const ADD_PHOTO = "ADD_PHOTO";
 export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const CLEAR_PHOTO_ERRORS = "CLEAR_PHOTO_ERRORS";
 export const START_LOADING_PHOTOS = "START_LOADING_PHOTOS";
@@ -24,6 +25,11 @@ export const removePhoto = photo => ({
   type: REMOVE_PHOTO,
   photo
 });
+
+// export const newPhoto = photo => ({
+//   type: ADD_PHOTO,
+//   photo
+// });
 
 export const receiveErrors = errors => ({
   type: RECEIVE_PHOTO_ERRORS,
@@ -66,8 +72,7 @@ export const getPhoto = id => dispatch => (
 
 export const addPhoto = photo => dispatch => (
   PhotoAPIUtil.addPhoto(photo).then(pic => (
-    dispatch(receivePhoto(pic))
-  )), err => (
+    dispatch(getUserPhotos(pic.user_id)))), err => (
     dispatch(receiveErrors(err.responseJSON))
   )
 );

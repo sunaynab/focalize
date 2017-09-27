@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import PhotoModal from './modal';
-
-
+import PhotoModal from './photo_modal';
+import ProfilePhotoModal from './profile_photo_modal';
 let className = "hide";
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {modalIsOpen: false};
+    this.state = {imageModalIsOpen: false, profileModalIsOpen: false};
     this.addPhotoClick = this.addPhotoClick.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.closeImageModal = this.closeImageModal.bind(this);
     this.deleteButton = this.deleteButton.bind(this);
+    this.addProfileImageClick = this.addProfileImageClick.bind(this);
+    this.closeProfileModal = this.closeProfileModal.bind(this);
   }
 
   // photos
@@ -51,35 +52,57 @@ class Profile extends React.Component {
     return links;
   }
 
+
+
   //Modal
 
   addPhotoClick(){
-    this.setState({modalIsOpen: true});
+    this.setState({imageModalIsOpen: true});
   }
 
-  closeModal(){
-    this.setState({modalIsOpen: false});
+  closeImageModal(){
+    this.setState({imageModalIsOpen: false});
   }
+
+  addProfileImageClick() {
+    this.setState({profileModalIsOpen: true});
+  }
+
+  closeProfileModal() {
+    this.setState({profileModalIsOpen: false});
+  }
+
+
 
   // render
 
   render() {
-    const addPhoto = this.props.addPhoto;
-    const currentUser = this.props.currentUser;
-    const imageFile = this.state.imageFile;
+    let submitPhoto;
+    let profilePhotoModal;
+    if(parseInt(this.props.match.params.userId) === this.props.currentUser.id){
+      submitPhoto = (
+        <div className="submit-photo">
+          <button className="new-photo" onClick={this.addPhotoClick}>+</button>
+          <span>Submit Photo</span>
+        </div>
+      );
+      profilePhotoModal = (<ProfilePhotoModal profileModalIsOpen={this.state.profileModalIsOpen}
+        closeProfileModal={this.closeProfileModal}
+        addProfilePhoto={this.props.addProfilePhoto}
+        currentUser={this.props.currentUser}
+        />);
+    }
     return (
     <div className="profile-page">
-      <div className="submit-photo">
-        <button className="new-photo" onClick={this.addPhotoClick}>+</button>
-        <span>Submit Photo</span>
-      </div>
-      <PhotoModal modalIsOpen={this.state.modalIsOpen}
-        closeModal={this.closeModal}/>
-      <div className="submit-photo-div">
-        <button className="submit-button"></button>
-      </div>
+      {submitPhoto}
+      <PhotoModal imageModalIsOpen={this.state.imageModalIsOpen}
+        closeImageModal={this.closeImageModal}
+        addPhoto={this.props.addPhoto}/>
+      {profilePhotoModal}
       <div className="profile-page-image">
-        <img src={this.props.user.image_url}></img>
+        <a onClick={this.addProfileImageClick}>
+          <img src={this.props.user.image_url}></img>
+        </a>
       </div>
       <span className= "name">{this.props.user.username}</span>
       <div className="stats">

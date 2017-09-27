@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   align-content: center;
-  justify-content: flex-start;
+  justify-content: center;
   position: absolute;
   width: 100vw;
 }
@@ -93,4 +93,8 @@
 .new-photo:hover {
   background-color: gray;
   color: white;
+}
+
+.profile-page-image a img {
+  align-self: center;
 }

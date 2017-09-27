@@ -11,6 +11,7 @@ class PhotoModal extends React.Component {
     this.handleImageUpload = this.handleImageUpload.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removeImage = this.removeImage.bind(this);
+    this.close = this.close.bind(this);
   }
 
   onImageDrop(files) {
@@ -27,24 +28,32 @@ class PhotoModal extends React.Component {
     }
   }
 
-  handleSubmit() {
-    const formData = new FormData();
-    formData.append("photo[image]", this.state.imageFile);
-    this.props.addPhoto(formData);
-  }
-
   removeImage() {
     this.setState({imageUrl: "", imageFile: null});
   }
 
+  close() {
+    this.removeImage();
+    this.props.closeImageModal();
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("photo[image]", this.state.imageFile);
+    this.props.addPhoto(formData);
+    this.close();
+  }
+
+
   render() {
     return (
       <Modal
-        isOpen={this.props.modalIsOpen}
+        isOpen={this.props.imageModalIsOpen}
         contentLabel="add-photo-modal"
         style={modalStyle}
-        onClick="disabled">
-        <a className="close-modal" onClick={this.props.closeModal}>x</a>
+        onRequestClose={this.close}>
+        <a className="close-modal" onClick={this.close}>x</a>
         <Dropzone
           accept="image/*"
           onDrop={this.onImageDrop}
@@ -52,7 +61,7 @@ class PhotoModal extends React.Component {
           <p>Drop an image or click to select a file to upload. Click upload to add your photo to your profile.</p>
           <img src={this.state.imageUrl}></img>
         </Dropzone>
-        <button type="submit" className="modal-submit"
+        <button className="modal-submit"
           onClick={this.handleSubmit}>Submit
         </button>
         <a className="remove-image" onClick={this.removeImage}>Remove Image</a>

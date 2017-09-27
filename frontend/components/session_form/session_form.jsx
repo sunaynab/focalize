@@ -10,8 +10,8 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.demoLogin = this.demoLogin.bind(this);
     this.submit = this.submit.bind(this);
+    this.typeChars = this.typeChars.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -44,9 +44,24 @@ class SessionForm extends React.Component {
     }
   }
 
-  demoLogin() {
-    this.setState({username: "demoUser"});
-    this.setState({password: "demosarecool"});
+  typeChars(e) {
+    e.preventDefault();
+    const username = "demoUser".split("");
+    const password= "demosarecool".split("");
+    const intervalId = setInterval(() => {
+      if (username.length > 0) {
+        this.setState({
+          username: this.state.username + username.shift()
+        });
+      } else if (password.length > 0) {
+        this.setState({
+          password: this.state.password + password.shift()
+        });
+      } else {
+        clearInterval(intervalId);
+        this.submit();
+      }
+    }, 80);
   }
 
   renderErrors() {
@@ -102,7 +117,7 @@ class SessionForm extends React.Component {
             <br/>
             <div className="submit">
               <input type="submit" value={this.props.formType}/>
-              <button className="demoLogin" onClick={this.demoLogin}>guest sign-in</button>
+              <button className="demoLogin" onClick={this.typeChars}>guest sign-in</button>
             </div>
           </div>
         </form>
