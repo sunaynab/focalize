@@ -41,7 +41,7 @@ class Profile extends React.Component {
       deleteButton = this.deleteButton;
     }
     const links = this.props.photos.map(photo => (
-      <div key={`div${photo.id}`} className="photo-links">
+      <div key={`div${photo.id}`} className="photo-links grid-item">
         <Link key={`photo${photo.id}`}className="zoom" to={`/photos/${photo.id}`}>
           <img key={`pic${photo.id}`}src={photo.image_url}></img>
         </Link>
@@ -109,7 +109,7 @@ class Profile extends React.Component {
         <span># followers</span><span># following</span>
       </div>
       <button className="following-button">Following Status</button>
-      <div className="pictures-grid">
+      <div className="pictures-grid grid">
         {this.photoLinks()}
       </div>
     </div>

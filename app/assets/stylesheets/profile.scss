@@ -18,30 +18,22 @@
 }
 
 .pictures-grid {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: auto;
-  width: 10vw;
+  width: 90vw;
+  line-height: 0;
+  margin: 4px;
+  column-count: 3;
+  column-gap: 6px;
 }
-
-// .pictures-grid {
-//   width: 90vw;
-//   line-height: 0;
-//   margin: 4px;
-//   column-count: 3;
-//   column-gap: 5px;
-// }
 
 .pictures-grid img {
-  height: auto;
-  float: left;
-  width: 18vw;
-  margin: 2px;
+  width: 30vw;
+  margin-top: 1.5px;
+  margin-bottom: 1.5px;
 }
 
-.pictures-grid a {
-  height: auto;
+.zoom {
+  width: inherit;
+  height: inherit;
 }
 
 .zoom:hover{
@@ -67,7 +59,6 @@
   top: 10px;
   width: auto;
   border: none;
-  margin-top: 5px;
 }
 
 .delete-button:hover {
@@ -77,7 +68,6 @@
 
 .photo-links {
   position: relative;
-  display: flex;
 }
 
 .new-photo {
