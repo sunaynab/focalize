@@ -18,19 +18,30 @@
 }
 
 .pictures-grid {
-  width: 90vw;
-  line-height: 0;
-  margin: 4px;
-  column-count: 3;
-  column-gap: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;
+  width: 10vw;
 }
 
+// .pictures-grid {
+//   width: 90vw;
+//   line-height: 0;
+//   margin: 4px;
+//   column-count: 3;
+//   column-gap: 5px;
+// }
+
 .pictures-grid img {
-  width: 100%;
-  float: left;
   height: auto;
-  margin-top: 3px;
-  margin-bottom: 2px;
+  float: left;
+  width: 18vw;
+  margin: 2px;
+}
+
+.pictures-grid a {
+  height: auto;
 }
 
 .zoom:hover{
@@ -95,6 +106,6 @@
   color: white;
 }
 
-.profile-page-image a img {
-  align-self: center;
+.profile-page-image a {
+  text-align: center;
 }
