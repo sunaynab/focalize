@@ -1,9 +1,10 @@
-export const fetchUser = userId => (
-  $.ajax({
+export const fetchUser = userId => {
+  console.log(userId);
+  return $.ajax({
     method: "GET",
     url: `api/users/${userId}`
-  })
-);
+  });
+};
 
 export const updateUser = (image, userId) => (
   $.ajax({
