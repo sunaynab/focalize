@@ -8,8 +8,10 @@ json.following_user_ids do
   json.array! user.users_following_ids
 end
 
-if user.follower_ids.include?(current_user.id)
-  json.current_user_follows "true"
-else
-  json.current_user_follows "false"
+if logged_in?
+  if user.follower_ids.include?(current_user.id)
+    json.current_user_follows "true"
+  else
+    json.current_user_follows "false"
+  end
 end
