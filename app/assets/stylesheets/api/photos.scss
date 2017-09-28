@@ -47,6 +47,7 @@
   color: white;
   margin-left: 10px;
   bottom: 0;
+  text-shadow: 2px 2px 20px black;
 }
 
 Link:hover {
@@ -81,9 +82,4 @@ Link img:hover, Link span:hover {
 
 .picture:hover {
   cursor: zoom-out;
-}
-
-.name {
-  font-size: 30px;
-  font-weight: 100;
 }

@@ -23,6 +23,7 @@
   margin: 4px;
   column-count: 3;
   column-gap: 6px;
+  margin-top: 20px;
 }
 
 .pictures-grid img {
@@ -98,4 +99,25 @@
 
 .profile-page-image a {
   text-align: center;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+// FollowingButton
+
+.false {
+  background-color: #5abc81
+}
+
+.false:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.true:hover {
+  background-color: red;
 }

@@ -13,6 +13,8 @@ class Profile extends React.Component {
     this.deleteButton = this.deleteButton.bind(this);
     this.addProfileImageClick = this.addProfileImageClick.bind(this);
     this.closeProfileModal = this.closeProfileModal.bind(this);
+    this.unfollow = this.unfollow.bind(this);
+    this.follow = this.follow.bind(this);
   }
 
   // photos
@@ -28,7 +30,7 @@ class Profile extends React.Component {
   }
 
   deleteButton(photoId){
-    if(parseInt(this.props.match.params.userId) === this.props.currentUser.id){
+    if(parseInt(this.props.userId) === this.props.currentUser.id){
       return (
         <button className="delete-button" key={`del${photoId}`} onClick={() => this.props.deletePhoto(photoId)}>X</button>
       );
@@ -72,6 +74,30 @@ class Profile extends React.Component {
     this.setState({profileModalIsOpen: false});
   }
 
+  //following
+
+  unfollow() {
+    this.props.unfollowUser(this.props.userId);
+  }
+
+  follow() {
+    this.props.followUser(this.props.userId);
+  }
+
+  followingStatus() {
+    if (parseInt(this.props.userId) !== this.props.currentUser.id){
+      if (this.props.user.current_user_follows === "true"){
+        return(
+          <button onClick={this.unfollow} className="following-button true">Following</button>
+        );
+      }else{
+        return(
+          <button onClick={this.follow} className="following-button false">Follow</button>
+        );
+      }
+    }
+  }
+
 
 
   // render
@@ -79,7 +105,7 @@ class Profile extends React.Component {
   render() {
     let submitPhoto;
     let profilePhotoModal;
-    if(parseInt(this.props.match.params.userId) === this.props.currentUser.id){
+    if(parseInt(this.props.userId) === this.props.currentUser.id){
       submitPhoto = (
         <div className="submit-photo">
           <button className="new-photo" onClick={this.addPhotoClick}>+</button>
@@ -108,7 +134,7 @@ class Profile extends React.Component {
       <div className="stats">
         <span># followers</span><span># following</span>
       </div>
-      <button className="following-button">Following Status</button>
+        {this.followingStatus()}
       <div className="pictures-grid grid">
         {this.photoLinks()}
       </div>

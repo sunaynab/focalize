@@ -14,3 +14,18 @@ export const updateUser = (image, userId) => (
     data: image
   })
 );
+
+export const unfollow = (userId, followId) => (
+  $.ajax({
+    method: "DELETE",
+    url: `api/users/${userId}/follows/${followId}`
+  })
+);
+
+export const follow = user_following_id => (
+  $.ajax({
+    method: "POST",
+    url: `api/users/${user_following_id}/follows`,
+    data: {follow: {user_following_id}}
+  })
+);

@@ -1,0 +1,2 @@
+module Api::FollowHelper
+end
