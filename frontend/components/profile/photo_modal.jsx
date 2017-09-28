@@ -54,6 +54,7 @@ class PhotoModal extends React.Component {
         style={modalStyle}
         onRequestClose={this.close}>
         <a className="close-modal" onClick={this.close}>x</a>
+        <h1>Add Photo</h1>
         <Dropzone
           accept="image/*"
           onDrop={this.onImageDrop}

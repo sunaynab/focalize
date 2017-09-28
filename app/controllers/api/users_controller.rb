@@ -9,6 +9,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all.take(20)
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(image: user_params[:image])

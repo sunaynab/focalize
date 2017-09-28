@@ -7,11 +7,11 @@ import { getPhoto,
          getUser} from '../../actions/photo_actions';
 import { addProfilePhoto, unfollowUser, followUser } from '../../actions/user_actions';
 import Profile from './profile';
-import {getAllUserPhotos} from '../../reducers/selectors';
+import {getAllPhotos} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    photos: getAllUserPhotos(state.entities.photos),
+    photos: getAllPhotos(state.entities.photos),
     currentUser: state.session.currentUser,
     userId: ownProps.match.params.userId,
     user: state.entities.user

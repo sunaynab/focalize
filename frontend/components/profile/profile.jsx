@@ -105,6 +105,7 @@ class Profile extends React.Component {
   render() {
     let submitPhoto;
     let profilePhotoModal;
+    let status = "disabled";
     if(parseInt(this.props.userId) === this.props.currentUser.id){
       submitPhoto = (
         <div className="submit-photo">
@@ -117,6 +118,7 @@ class Profile extends React.Component {
         addProfilePhoto={this.props.addProfilePhoto}
         currentUser={this.props.currentUser}
         />);
+      status = "active";
     }
     return (
     <div className="profile-page">
@@ -126,7 +128,7 @@ class Profile extends React.Component {
         addPhoto={this.props.addPhoto}/>
       {profilePhotoModal}
       <div className="profile-page-image">
-        <a onClick={this.addProfileImageClick}>
+        <a className={status} onClick={this.addProfileImageClick}>
           <img src={this.props.user.image_url}></img>
         </a>
       </div>

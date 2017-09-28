@@ -121,3 +121,7 @@
 .true:hover {
   background-color: red;
 }
+
+.disabled:hover {
+  cursor: default;
+}

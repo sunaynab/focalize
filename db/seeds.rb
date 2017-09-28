@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-user1 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-user2 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-user3 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-user4 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-user5 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
-user6 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
+user1 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+user2 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+user3 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+user4 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+user5 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+user6 = User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
 demoUser = User.create(username: "demoUser", email: 'demosareawesome@email.com', password: "demosarecool")
 
 Follow.destroy_all

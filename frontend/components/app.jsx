@@ -10,10 +10,10 @@ import SessionFormContainer from './session_form/session_form_container';
 import NavBarContainer from './navbar/navbar_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Home from './home/home';
-import Following from './following/following';
+import FollowingContainer from './following/following_container';
 import ProfileContainer from './profile/profile_container';
 import PhotoDetailContainer from './photos/photos_container';
-
+import FeedContainer from './following/feed_container';
 
 
 const App = () => (
@@ -23,7 +23,8 @@ const App = () => (
         <AuthRoute exact path="/" component={Home} />
         <ProtectedRoute path="/photos/:photoId" component={PhotoDetailContainer} />
         <ProtectedRoute path="/users/:userId" component={ProfileContainer} />
-        <ProtectedRoute path="/following" component={Following} />
+        <ProtectedRoute path="/following" component={FollowingContainer} />
+        <ProtectedRoute path="/feed" component={FeedContainer} />
         <AuthRoute path="/sign-in" component={SessionFormContainer} />
         <AuthRoute path="/sign-up" component={SessionFormContainer} />
       </Switch>

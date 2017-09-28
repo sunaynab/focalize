@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :follows, only: [:create, :destroy]
     end
 
-    resources :users, only: [:create, :update]
+    resources :users, only: [:create, :update, :index]
     resource :session, only: [:create, :destroy]
     resources :photos, only: [:create, :show, :destroy, :index]
   end
