@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :random_photo
 
   private
 
@@ -26,4 +26,7 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end
 
+  def random_photo(user)
+    user.photos.sample
+  end
 end

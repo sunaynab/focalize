@@ -7,7 +7,7 @@ class Following extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getPhotos();
+    this.props.fetchUsers();
   }
 
   componentWillReceiveProps(newProps){
@@ -15,10 +15,13 @@ class Following extends React.Component {
   }
 
   userLinks() {
-    const links = this.props.photos.map(photo => (
-      <div key = {`followingdiv${photo.id}`} className="user-links">
-        <div key={`followinguserinfo${photo.id}`} className= "user-i">
-
+    const links = this.props.usersAndPhotos.map(user => {
+      const photo = Object.values(user.photos)[0];
+      return (
+      <div key = {`followingdiv${user.id}`} className="user-links">
+        <div key={`followinguserinfo${user.id}`} className= "user-i">
+          {user.username}
+          <img src={user.image_url}></img>
         </div>
         <div key={`followphotodiv${photo.id}`} className="photo-linkss">
           <Link key={`followphoto${photo.id}`}className="pics" to={`/photos/${photo.id}`}>
@@ -26,7 +29,9 @@ class Following extends React.Component {
           </Link>
         </div>
       </div>
-    ));
+      );
+    }
+  );
 
     return links;
   }

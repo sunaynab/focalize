@@ -1,0 +1,29 @@
+// .feed {
+//   display: flex;
+//   flex-direction: column;
+//   position: absolute;
+//   width: 100vw;
+// }
+
+.feed-page {
+  display: flex;
+  justify-content: center;
+}
+
+.feed {
+  width: 90vw;
+  line-height: 0;
+  column-count: 3;
+  column-gap: 6px;
+  margin-top: 20px;
+}
+
+.pics img {
+  width: 30vw;
+  height: auto;
+  margin-bottom: 3px;
+}
+
+.pics:hover {
+  cursor: zoom-in;
+}

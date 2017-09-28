@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.take(20)
+    @users = User.random_users
   end
 
   def update

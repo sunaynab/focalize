@@ -30,8 +30,10 @@ class Feed extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.photoLinks()};
+      <div className="feed-page">
+        <div className='feed'>
+          {this.photoLinks()};
+        </div>
       </div>
     );
   }
