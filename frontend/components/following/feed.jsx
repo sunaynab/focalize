@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Links from './links';
 
 class Feed extends React.Component {
   constructor(props){
@@ -31,6 +32,7 @@ class Feed extends React.Component {
   render() {
     return (
       <div className="feed-page">
+        <Links path='/feed'/>
         <div className='feed'>
           {this.photoLinks()};
         </div>

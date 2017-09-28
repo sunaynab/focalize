@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import Links from './links';
 
 class Following extends React.Component {
   constructor(props){
@@ -39,6 +40,7 @@ class Following extends React.Component {
   render() {
     return(
       <div className="following">
+        <Links path={"/following"}/>
         <div className="user-information">
           <Link to={`users/${this.props.currentUser.id}`} className ="profile-link">
             <img className="profile-pic" src={this.props.currentUser.image_url}></img>
