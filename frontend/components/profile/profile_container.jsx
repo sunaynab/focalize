@@ -10,13 +10,19 @@ import Profile from './profile';
 import {getAllPhotos} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
+  let user;
+  if(state.entities.user[ownProps.match.params.userId]){
+    user = state.entities.user[ownProps.match.params.userId];
+  }else{
+    user = {};
+  }
   return {
     photos: getAllPhotos(state.entities.photos),
     currentUser: state.session.currentUser,
     numFollowers: state.session.currentUser.followers_user_ids.length,
     numFollowing: state.session.currentUser.following_user_ids.length,
     userId: ownProps.match.params.userId,
-    user: state.entities.user
+    user: user
   };
 };
 

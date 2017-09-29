@@ -115,12 +115,25 @@
 }
 
 .false:hover {
+  border: 1px solid black;
   background-color: white;
   color: black;
-  border: 1px solid black;
+}
+
+.false:focus {
+  background-color: #5abc81;
+  color: white;
 }
 
 .true:hover {
+  background-color: red;
+}
+
+.true:active {
+  background-color: red;
+}
+
+.true:focus {
   background-color: red;
 }
 

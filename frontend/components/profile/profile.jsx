@@ -78,10 +78,12 @@ class Profile extends React.Component {
 
   unfollow() {
     this.props.unfollowUser(this.props.userId);
+    this.props.getUserPhotos(this.props.userId);
   }
 
   follow() {
     this.props.followUser(this.props.userId);
+    this.props.getUserPhotos(this.props.userId);
   }
 
   followingStatus() {

@@ -20,41 +20,49 @@ class Following extends React.Component {
   }
 
   userLinks() {
-    if (this.props.usersAndPhotos=== undefined){
+    if (this.props.usersAndPhotos === undefined){
       return (<div></div>);
-    }
-    const links = this.props.usersAndPhotos.map(user => {
-      const photo = Object.values(user.photos)[0];
-      return (
-      <div key = {`followingdiv${user.id}`} className="user-links">
-        <div key={`followinguserinfo${user.id}`} className= "user-i">
-          <Link to={`/users/${user.id}`}>
-            <div className="profile-circle">
-              <img src={user.image_url}></img>
-            </div>
-            {user.username}
-          </Link>
-          {this.followingStatus(user)}
+    }else {
+      const links = this.props.usersAndPhotos.map(user => {
+        let photo;
+        if (user.photos === undefined || user.photos === null){
+          photo = [];
+        }else{
+          photo = Object.values(user.photos)[0];
+        }
+        return (
+        <div key = {`followingdiv${user.id}`} className="user-links">
+          <div key={`followinguserinfo${user.id}`} className= "user-i">
+            <Link to={`/users/${user.id}`}>
+              <div className="profile-circle">
+                <img src={user.image_url}></img>
+              </div>
+              {user.username}
+            </Link>
+            {this.followingStatus(user)}
+          </div>
+          <div key={`followphotodiv${photo.id}`} className="photo-linkss">
+            <Link key={`followphoto${photo.id}`}className="pictures" to={`/photos/${photo.id}`}>
+              <img key={`followpic${photo.id}`} src={photo.image_url}></img>
+            </Link>
+          </div>
         </div>
-        <div key={`followphotodiv${photo.id}`} className="photo-linkss">
-          <Link key={`followphoto${photo.id}`}className="pictures" to={`/photos/${photo.id}`}>
-            <img key={`followpic${photo.id}`} src={photo.image_url}></img>
-          </Link>
-        </div>
-      </div>
-      );
-    }
-  );
+        );
+      }
+    );
 
-    return links;
+      return links;
+    }
   }
 
   unfollow(user) {
     this.props.unfollowUser(user.id);
+    this.props.fetchUsers();
   }
 
   follow(user) {
     this.props.followUser(user.id);
+    this.props.fetchUsers();
   }
 
   followingStatus(user) {

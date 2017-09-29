@@ -10,6 +10,8 @@ const mapStateToProps = state  => {
   if (Object.values(state.entities.user)[1]){
     if(Object.values(state.entities.user)[1].photos){
     usersAndPhotos = getUsersAndPhotos(state.entities.user);
+    }else{
+      usersAndPhotos = [];
     }
   }else {
     usersAndPhotos = [];

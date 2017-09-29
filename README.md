@@ -1,27 +1,66 @@
 # README
 
-## Heroku Link
+## Focalize
 * https://focalize.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Focalize is a photo-sharing website inspired by 500px. Users are able to share their best photos and find inspiration from other users' photos.
 
-Things you may want to cover:
+After signing up for an account, users are able to:
 
-* Ruby version
+* discover/follow other users via the following page
+* view photos from users they are following via the feed page
+* view the photos they have shared via their profile page
 
-* System dependencies
+## Overall Structure
 
-* Configuration
+### Backend
 
-* Database creation
+This app was built with Ruby on Rails and PostgreSQL on the backend. Requests for data for the frontend were made through AJAX and fulfilled by JBuilder.
 
-* Database initialization
+### Frontend
 
-* How to run the test suite
+The frontend was created through the use of React.js and Redux.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Libraries
 
-* Deployment instructions
+* BCrypt as a method of achieving secure authentication through password-salting and hashing
+* Paperclip - used to store images to Amazon Web Services
+* Figaro - to secure api keys with Amazon Web Services
+* React-Modal - utilized to create modals for uploading images
+* React-Dropzone - allows users to drop files into the modal when uploading images
+* animate.css - sign-in/sign-out form animations
+* Amazon Web Services used to store all uploaded images.
 
-* ...
+## Features
+
+### Profile
+
+Each user's profile page includes:
+
+* a grid featuring all of their shared photos
+* statistics regarding the number of followers/following
+* profile photo
+* option to delete photos
+* option to share photos
+
+Delete buttons were mapped to each photo in order to each an easy and simple way for users to delete any shared photos.
+
+```
+photoLinks() {
+  let deleteButton;
+  if (this.props.photos.length !== 0){
+    deleteButton = this.deleteButton;
+  }
+  const links = this.props.photos.map(photo => (
+    <div key={`div${photo.id}`} className="photo-links grid-item">
+      <Link key={`photo${photo.id}`}className="zoom" to={`/photos/${photo.id}`}>
+        <img key={`pic${photo.id}`}src={photo.image_url}></img>
+      </Link>
+        {deleteButton(photo.id)}
+    </div>
+  ));
+
+  return links;
+}
+
+```
