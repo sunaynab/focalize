@@ -26,7 +26,7 @@ class NavBar extends React.Component {
       // signed-in
       span = (
         <div className="user-info">
-          <Link className="username" to={`/users/${this.props.currentUser.id}`}>hey, {this.props.currentUser.username}</Link>
+          <Link className="username" to={`/users/${this.props.currentUser.id}`}>Hey, {this.props.currentUser.username}</Link>
           <a className = "logout" onClick={this.handleClick}>Sign Out</a>
         </div>);
       navBarClass = "navbar";

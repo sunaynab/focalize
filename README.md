@@ -1,7 +1,6 @@
-# README
 
 ## Focalize
-* https://focalize.herokuapp.com/
+ [Focalize Live Demo](https://focalize.herokuapp.com/)
 
 Focalize is a photo-sharing website inspired by 500px. Users are able to share their best photos and find inspiration from other users' photos.
 
@@ -43,7 +42,7 @@ Each user's profile page includes:
 * option to delete photos
 * option to share photos
 
-Delete buttons were mapped to each photo in order to each an easy and simple way for users to delete any shared photos.
+Delete buttons were mapped to each photo in order to provide an easy and simple way for users to delete any shared photos.
 
 ```
 photoLinks() {
@@ -64,3 +63,20 @@ photoLinks() {
 }
 
 ```
+
+Modals were implemented in order to allow users to upload their own photos and profile photos when viewing their profile page.
+
+### Feed Page
+
+Includes photos of users the current user is folllowing.
+The filtering of photos was handled on the backend through associations.
+
+### Following Page
+
+Includes up to 5 random users and one random picture shared by each user. Intended for users to discover other users that they may wish to follow.
+
+## Future Features
+
+* UI enhancements
+* Users can like photos
+* Modal displaying users followers and users they are following
