@@ -80,3 +80,6 @@ Includes up to 5 random users and one random picture shared by each user. Intend
 * UI enhancements
 * Users can like photos
 * Modal displaying users followers and users they are following
+* Optimize photo loading time
+* Tags for photos
+* Search photos by tag
