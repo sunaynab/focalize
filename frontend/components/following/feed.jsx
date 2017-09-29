@@ -34,7 +34,7 @@ class Feed extends React.Component {
       <div className="feed-page">
         <Links path='/feed'/>
         <div className='feed'>
-          {this.photoLinks()};
+          {this.photoLinks()}
         </div>
       </div>
     );

@@ -29,23 +29,23 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :Photo
 
-  has_many :followings,
+  has_many :people_following_me,
+  primary_key: :id,
+  foreign_key: :follower_id,
+  class_name: :Follow
+
+  has_many :following_users,
+  through: :people_following_me,
+  source: :follower
+
+  has_many :people_i_follow,
   primary_key: :id,
   foreign_key: :user_following_id,
   class_name: :Follow
 
   has_many :followers,
-  through: :followings,
-  source: :follower
-
-  has_many :follows,
-  primary_key: :id,
-  foreign_key: :follower_id,
-  class_name: :Follow
-
-  has_many :users_following,
-  through: :follows,
-  source: :followee
+  through: :people_i_follow,
+  source: :following_user
 
   attr_reader :password
 

@@ -1,11 +1,11 @@
 json.extract! user, :id, :username
 json.image_url asset_path(user.image.url)
 json.followers_user_ids do
-  json.array! user.follower_ids
+  json.array! user.followers.ids
 end
 
 json.following_user_ids do
-  json.array! user.users_following_ids
+  json.array! user.following_users.ids
 end
 
 if logged_in?

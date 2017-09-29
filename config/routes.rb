@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:show] do
       resources :photos, only: [:index]
-      resources :follows, only: [:create, :destroy]
+      resource :follow, only: [:create]
+      delete "unfollow" => "follows#unfollow"
     end
 
     resources :users, only: [:create, :update, :index]

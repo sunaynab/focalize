@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     if params[:user_id]
       @photos = Photo.where(user_id: params[:user_id])
     else
-      users_following = current_user.users_following
+      users_following = current_user.following_users
       photos = users_following.map do |u|
         u.photos
       end

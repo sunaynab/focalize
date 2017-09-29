@@ -22,17 +22,18 @@ export const updateUser = (image, userId) => (
   })
 );
 
-export const unfollow = (userId, followId) => (
+export const unfollow = (user_following_id) => (
   $.ajax({
     method: "DELETE",
-    url: `api/users/${userId}/follows/${followId}`
+    url: `api/users/${user_following_id}/unfollow/`,
+    data: {follow: {user_following_id}}
   })
 );
 
 export const follow = user_following_id => (
   $.ajax({
     method: "POST",
-    url: `api/users/${user_following_id}/follows`,
+    url: `api/users/${user_following_id}/follow`,
     data: {follow: {user_following_id}}
   })
 );

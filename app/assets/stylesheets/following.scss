@@ -1,0 +1,130 @@
+// User Info
+
+.user-information {
+  width: 20vw;
+  height: auto;
+  margin-left: 40px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  display: flex;
+  justify-content: ce nter;
+  flex-direction: column;
+  position: fixed;
+}
+
+.profile-link {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.profile-pic {
+  width: 100%;
+}
+
+.labels-span {
+  font-weight: 200;
+  color: #5b5b5b;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.user-name, .num {
+  text-align: center;
+}
+
+.num {
+  margin-top: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  font-size: 35px;
+}
+
+.user-statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.circle {
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.5px solid gray;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+}
+
+.profile-pic {
+  height: 100%;
+  width: auto;
+}
+
+.following-feed {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin-right: 40px;
+  width: 60vw;
+}
+
+.user-links {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #e5e3e3;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.user-i {
+  display: flex;
+  height: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 100%;
+}
+
+.user-i a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-circle {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.5px solid gray;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  margin-right: 7px;
+  margin-left: 5px;
+}
+
+.user-i img {
+  height: 20px;
+  width: auto;
+}
+
+.photo-linkss img {
+  width: 100%;
+  height: auto;
+}
+
+.user-i button {
+  align-self: center;
+  margin-top: 2px;
+}
+
+.pictures img {
+  display: flex;
+}

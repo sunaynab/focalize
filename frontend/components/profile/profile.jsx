@@ -19,7 +19,7 @@ class Profile extends React.Component {
 
   // photos
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getUserPhotos(this.props.userId);
   }
 
@@ -134,7 +134,9 @@ class Profile extends React.Component {
       </div>
       <span className= "name">{this.props.user.username}</span>
       <div className="stats">
-        <span># followers</span><span># following</span>
+        <span><strong>{this.props.numFollowers}</strong> followers</span>
+        <span className="divider">|</span>
+        <span><strong>{this.props.numFollowing}</strong> following</span>
       </div>
         {this.followingStatus()}
       <div className="pictures-grid grid">

@@ -46,11 +46,11 @@
   min-width: 50px;
 }
 
-a:focus {
+.navbar a:focus, .navbar-home a:focus {
   outline: none;
 }
 
-a:hover {
+.navbar a:hover, .navbar-home a:hover {
   cursor: pointer;
 }
 
