@@ -16,12 +16,18 @@ export const addProfilePhoto = (image, userId) => dispatch => (
 
 export const unfollowUser = userId => dispatch => (
   UserAPIUtil.unfollow(userId).then(user => (
-    dispatch(receiveUser(user))
+    dispatch(fetchUser(user.id))
   ))
 );
 
 export const followUser = userId => dispatch => (
   UserAPIUtil.follow(userId).then(user => (
+    dispatch(fetchUser(user.id))
+  ))
+);
+
+export const fetchUser = (userId) => dispatch => (
+  UserAPIUtil.fetchUser(userId).then(user => (
     dispatch(receiveUser(user))
   ))
 );

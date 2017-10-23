@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchUsers } from '../../actions/user_actions';
+import { fetchUsers, fetchUser } from '../../actions/user_actions';
 import Following from './following';
 import {getUsersAndPhotos} from '../../reducers/selectors';
 import { unfollowUser, followUser } from '../../actions/user_actions';
@@ -28,7 +28,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
     unfollowUser: userId => dispatch(unfollowUser(userId)),
-    followUser: userId => dispatch(followUser(userId))
+    followUser: userId => dispatch(followUser(userId)),
+    fetchUser: () => dispatch(fetchUser())
   };
 };
 

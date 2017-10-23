@@ -19,7 +19,6 @@ class Following extends React.Component {
     }
   }
 
-  // {this.followingStatus(user)}
 
   userLinks() {
     if (this.props.usersAndPhotos === undefined){
@@ -41,6 +40,7 @@ class Following extends React.Component {
               </div>
               {user.username}
             </Link>
+            {this.followingStatus(user)}
 
           </div>
           <div key={`followphotodiv${photo.id}`} className="photo-linkss">
@@ -57,12 +57,14 @@ class Following extends React.Component {
   }
 
   unfollow(user) {
-    this.props.unfollowUser(user.id).then(() => this.props.fetchUsers);
+    this.props.unfollowUser(user.id);
+    // this.props.fetchUser(user.id);
 
   }
 
   follow(user) {
-    this.props.followUser(user.id).then(() => this.props.fetchUsers);
+    this.props.followUser(user.id);
+    // this.props.fetchUser(user.id);
   }
 
   followingStatus(user) {
