@@ -85,8 +85,8 @@ class SessionForm extends React.Component {
     return (
     <div className={`fullpage-${this.props.formType}`}>
       <div className={`${this.props.formType}-images`}>
-        <img className="sign-in-img animated fadeInRight" src="http://res.cloudinary.com/daesquwob/image/upload/v1506032460/sign_in_circles_po8xaf.png"></img>
-        <img className="sign-up-img animated fadeInLeft" src="http://res.cloudinary.com/daesquwob/image/upload/v1508956787/splashpage_zmyoia.png"></img>
+        <img className="sign-in-img animated fadeInRight" src="https://res.cloudinary.com/daesquwob/image/upload/v1508964745/sign_in_circles_po8xaf.png"></img>
+        <img className="sign-up-img animated fadeInLeft" src="https://res.cloudinary.com/daesquwob/image/upload/v1508964652/splashpage_zmyoia.png"></img>
       </div>
       <div className={`${this.props.formType}-form-container animated ${fadeIn}`}>
         <form onSubmit={this.handleSubmit} className={`${this.props.formType}-form-box`}>
