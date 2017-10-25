@@ -6,6 +6,7 @@ import PhotoDetail from './photo';
 const mapStateToProps = (state, ownProps) => {
   return {
     photo: state.entities.photos,
+    userId: parseInt(state.entities.photos.user_id),
     user: state.entities.user,
     photoId: ownProps.match.params.photoId
   };

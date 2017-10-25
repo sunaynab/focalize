@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    if params[:user_id] != "undefined"
+    if params[:user_id]
       @photos = Photo.where(user_id: params[:user_id])
     else
       users_following = current_user.following_users
