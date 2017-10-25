@@ -19,8 +19,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     photos: getAllPhotos(state.entities.photos),
     currentUser: state.session.currentUser,
-    numFollowers: state.session.currentUser.followers_user_ids.length,
-    numFollowing: state.session.currentUser.following_user_ids.length,
+    numFollowers: user.followers_user_ids.length,
+    numFollowing: user.following_user_ids.length,
     userId: ownProps.match.params.userId,
     user: user
   };
