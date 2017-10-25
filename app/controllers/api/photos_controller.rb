@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def index
-    if params[:user_id]
+    if params[:user_id] != "undefined"
       @photos = Photo.where(user_id: params[:user_id])
     else
       users_following = current_user.following_users
@@ -20,7 +20,9 @@ class Api::PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(user_id: current_user.id, image: photo_params[:image])
-    unless @photo.save
+    if @photo.save
+      render json: @photo
+    else
       render json: @photo.errors.full_messages
     end
   end
