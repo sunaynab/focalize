@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def self.random_users
-    User.order('RANDOM()').limit(5)
+    User.order('RANDOM()').limit(10)
   end
 
 
