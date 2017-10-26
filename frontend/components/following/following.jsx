@@ -57,13 +57,13 @@ class Following extends React.Component {
   }
 
   unfollow(user) {
-    this.props.unfollowUser(user.id);
+    this.props.unfollowUser(user.id, this.props.currentUser.id);
     // this.props.fetchUser(user.id);
 
   }
 
   follow(user) {
-    this.props.followUser(user.id);
+    this.props.followUser(user.id, this.props.currentUser.id);
     // this.props.fetchUser(user.id);
   }
 

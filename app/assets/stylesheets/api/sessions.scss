@@ -130,7 +130,7 @@ input[type=password]:hover, input[type=text]:hover{
   background-color: rgba(255,255,255,0.3);
 }
 
-input[type=submit]:hover, button:hover {
+input[type=submit]:hover, .demoLogin:hover {
   background-color: rgba(255,255,255,0.3);
   cursor: pointer;
 }
@@ -145,11 +145,11 @@ input[type=text]:focus {
   background-color: rgba(255,255,255,0.3);
 }
 
-input[type=submit]:focus, button:focus {
+input[type=submit]:focus {
   outline: none;
 }
 
-input[type=submit]:active , button:focus {
+input[type=submit]:active, .demoLogin:focus {
   outline: none;
   background-color: white;
   color: black;

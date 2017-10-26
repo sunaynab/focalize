@@ -43,15 +43,15 @@
   cursor: zoom-in;
 }
 
-.following-button {
-  background-color: gray;
-  align-self: flex-end;
-  margin-right: 5%;
-}
-
-.following-button:hover {
-  background-color: lightgray;
-}
+// .following-button {
+//   background-color: gray;
+//   align-self: flex-end;
+//   margin-right: 5%;
+// }
+//
+// .following-button:hover {
+//   background-color: lightgray;
+// }
 
 .delete-button {
   position: absolute;
@@ -110,6 +110,18 @@
 
 // FollowingButton
 
+.following-button {
+  margin-right: 8px;
+}
+
+.following-button:hover {
+  cursor: pointer;
+}
+
+.following-button:focus {
+  outline: none;
+}
+
 .false {
   background-color: #5abc81;
   color: white;
@@ -119,6 +131,11 @@
   border: 1px solid #5abc81;
   background-color: white;
   color: #5abc81;
+}
+
+.true {
+  background-color: gray;
+  color: white;
 }
 
 .true:hover {

@@ -1,5 +1,6 @@
 import * as UserAPIUtil from '../util/user_api_util';
 import {receiveUser} from './photo_actions';
+import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
@@ -14,16 +15,22 @@ export const addProfilePhoto = (image, userId) => dispatch => (
   ))
 );
 
-export const unfollowUser = userId => dispatch => (
-  UserAPIUtil.unfollow(userId).then(user => (
-    dispatch(fetchUser(user.id))
-  ))
+export const unfollowUser = (userId, currentUserId) => dispatch => (
+  UserAPIUtil.unfollow(userId).then((u) => {
+    dispatch(fetchUser(u.id));
+    UserAPIUtil.fetchUser(currentUserId).then(currentUser => (
+      dispatch(receiveCurrentUser(currentUser))
+    ));
+  })
 );
 
-export const followUser = userId => dispatch => (
-  UserAPIUtil.follow(userId).then(user => (
-    dispatch(fetchUser(user.id))
-  ))
+export const followUser = (userId, currentUserId) => dispatch => (
+  UserAPIUtil.follow(userId).then((u) => {
+    dispatch(fetchUser(u.id));
+    UserAPIUtil.fetchUser(currentUserId).then(currentUser => (
+      dispatch(receiveCurrentUser(currentUser))
+    ));
+  })
 );
 
 export const fetchUser = (userId) => dispatch => (
