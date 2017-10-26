@@ -45,6 +45,14 @@ class ProfilePhotoModal extends React.Component {
     this.close();
   }
 
+  imageStatus() {
+    if (this.state.imageUrl === ""){
+      return "no-img";
+    }else {
+      return "image";
+    }
+  }
+
   render() {
     return (
       <Modal
@@ -59,10 +67,10 @@ class ProfilePhotoModal extends React.Component {
           onDrop={this.onImageDrop}
           className="dropzone">
           <p>Drop an image or click to select a file to upload. Click upload to add your profile photo.</p>
-          <img src={this.state.imageUrl}></img>
+          <img className={this.imageStatus()} src={this.state.imageUrl}></img>
         </Dropzone>
         <button type="submit" className="modal-submit"
-          onClick={this.handleSubmit}>Submit
+          onClick={this.handleSubmit}>Upload
         </button>
         <a className="remove-image" onClick={this.removeImage}>Remove Image</a>
       </Modal>

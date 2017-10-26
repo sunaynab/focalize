@@ -19,6 +19,13 @@ footer, small {
   display: block;
 }
 
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
 
 
 ul {

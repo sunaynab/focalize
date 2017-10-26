@@ -17,7 +17,7 @@ const modalStyle = {
     padding         : '20px 50px 50px 50px',
     overflow        : 'none',
     zIndex          : 11,
-    backgroundColor : 'rgba(255, 255, 255, 0.8)',
+    backgroundColor : 'rgba(255, 255, 255, 1)',
     display         : 'flex',
     flexDirection   : 'column'
 

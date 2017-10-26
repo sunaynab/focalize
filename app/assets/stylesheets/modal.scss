@@ -29,9 +29,13 @@
   margin: 20px;
 }
 
-.dropzone img {
+.image {
   width: 80%;
-  height: auto;
+  height: 80%;
+}
+
+.dropzone img {
+  object-fit: contain;
 }
 
 .modal-submit {
@@ -43,6 +47,10 @@
   align-self: center;
   color: red;
   font-weight: 400;
+}
+
+.remove-image:hover {
+  cursor: pointer;
 }
 
 .close-modal {
