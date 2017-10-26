@@ -13,6 +13,8 @@ const mapStateToProps = (state, ownProps) => {
   let user;
   if(state.entities.user[ownProps.match.params.userId]){
     user = state.entities.user[ownProps.match.params.userId];
+  }else if (parseInt(ownProps.match.params.userId) === state.session.currentUser.id){
+    user = state.session.currentUser;
   }else{
     user = {};
   }
